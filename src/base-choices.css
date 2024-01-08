@@ -327,7 +327,8 @@
 
 .choices__list--dropdown .choices__item--selectable.is-highlighted::after,
 .choices__list[aria-expanded] .choices__item--selectable.is-highlighted::after {
-  opacity: 0.5;
+  opacity: 1;
+  color: #004680;
 }
 
 .choices__item {
