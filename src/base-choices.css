@@ -6,7 +6,6 @@
 
   color: white;
   background-color: #242a3e;
-  border: 1px solid #239bff;
 }
 
 .choices:focus {
@@ -157,7 +156,7 @@
 
 .is-focused .choices__inner,
 .is-open .choices__inner {
-  border-color: #b7b7b7;
+  border-color: #239bff;
 }
 
 .is-open .choices__inner {
