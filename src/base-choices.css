@@ -11,7 +11,7 @@
 .choices {
   position: relative;
   overflow: hidden;
-  margin: 24px 20px;
+  margin: 0px 20px 24px 20px;
   font-size: 16px;
 
   color: var(--gg-choices-color);
