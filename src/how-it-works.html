@@ -1,0 +1,426 @@
+<head>
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <!-- Slider main container -->
+  <div
+    x-data="{swiper: null, activeIndex: 3}"
+    x-init="
+swiper = new Swiper($refs.container, {
+  // loop: true,
+  // centeredSlides: true,
+  initialSlide: 3,
+  allowTouchMove: false,
+  breakpoints: {
+    640: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    },
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    },
+    1024: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    },
+  },
+})
+
+swiper.on('slideChange', function () {
+  console.log('slide changed');
+  activeIndex = swiper.activeIndex
+});
+
+
+"
+  >
+    <div class="swiper h-fit w-full" x-ref="container">
+      <div x-text="activeIndex"></div>
+      <div class="text-neutral-800 text-xl font-extrabold mb-10 text-center">
+        Use Gigi to buy your home online.
+      </div>
+
+      <!-- Steps -->
+      <div class="justify-center flex">
+        <div
+          class="justify-start items-center gap-[26px] md:gap-20 inline-flex"
+        >
+          <div
+            class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
+            x-bind:class="activeIndex > 0 ? 'border-green-500 text-green-500' : activeIndex === 0 ? 'border-sky-500 text-sky-500' : 'border-transparent text-zinc-500'"
+          >
+            <div class="w-10 h-10 relative">
+              <div
+                class="w-10 h-10 flex items-center justify-center left-0 top-0 absolute rounded-full"
+                x-bind:class="activeIndex > 0 ? 'bg-green-500 text-white' : activeIndex === 0 ? 'bg-sky-500 text-white' : 'bg-slate-100 text-zinc-500'"
+              >
+                <svg
+                  x-show="activeIndex > 0"
+                  width="16"
+                  height="12"
+                  viewbox="0 0 16 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 5.99997L5.66793 11L15 1"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <svg
+                  x-show="activeIndex <= 0"
+                  width="16"
+                  height="16"
+                  viewbox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.82491 11.5511C4.19692 11.5511 2.8191 10.9871 1.69147 9.859C0.563824 8.73092 0 7.36995 0 5.77608C0 4.18221 0.561956 2.82106 1.68587 1.69264C2.80978 0.564213 4.17456 0 5.78022 0C7.38588 0 8.74911 0.564266 9.86991 1.6928C10.9907 2.82131 11.5511 4.18398 11.5511 5.78079C11.5511 6.42538 11.4444 7.05075 11.2309 7.6569C11.0174 8.26305 10.701 8.83298 10.2816 9.36669L15.7968 14.8252C15.9246 14.9536 15.9886 15.1128 15.9886 15.303C15.9886 15.4932 15.9218 15.6569 15.7884 15.7941C15.655 15.9314 15.4913 16 15.2973 16C15.1033 16 14.9458 15.9324 14.8249 15.7971L9.33604 10.3045C8.88375 10.7086 8.35294 11.0174 7.74361 11.2309C7.13428 11.4444 6.49471 11.5511 5.82491 11.5511ZM5.79843 10.2359C7.02978 10.2359 8.0772 9.80084 8.94067 8.93075C9.80414 8.06065 10.2359 7.00847 10.2359 5.7742C10.2359 4.53994 9.80414 3.48821 8.94067 2.61901C8.0772 1.74982 7.02788 1.31523 5.79271 1.31523C4.54484 1.31523 3.48662 1.75027 2.61805 2.62036C1.7495 3.49046 1.31523 4.54264 1.31523 5.7769C1.31523 7.01117 1.74982 8.0629 2.61901 8.93209C3.48821 9.80129 4.54801 10.2359 5.79843 10.2359Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="text-base font-medium">Step 1</div>
+          </div>
+
+          <div
+            class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
+            x-bind:class="activeIndex > 1 ? 'border-green-500 text-green-500' : activeIndex === 1 ? 'border-sky-500 text-sky-500' : 'border-transparent text-zinc-500'"
+          >
+            <div class="w-10 h-10 relative">
+              <div
+                class="w-10 h-10 flex items-center justify-center left-0 top-0 absolute rounded-full"
+                x-bind:class="activeIndex > 1 ? 'bg-green-500 text-white' : activeIndex === 1 ? 'bg-sky-500 text-white' : 'bg-slate-100 text-zinc-500'"
+              >
+                <svg
+                  x-show="activeIndex > 1"
+                  width="16"
+                  height="12"
+                  viewbox="0 0 16 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 5.99997L5.66793 11L15 1"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <svg
+                  x-show="activeIndex <= 1"
+                  width="16"
+                  height="17"
+                  viewbox="0 0 16 17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.16175 16.0152C0.851715 16.0152 0.580179 15.8987 0.347139 15.6656C0.114086 15.4326 -0.00244141 15.161 -0.00244141 14.851V2.37899C-0.00244141 2.06896 0.114086 1.79743 0.347139 1.56439C0.580179 1.33133 0.851715 1.21481 1.16175 1.21481H2.5284V0.617526C2.5284 0.448466 2.58881 0.303282 2.70961 0.181977C2.83042 0.0606588 2.97754 0 3.15099 0C3.33017 0 3.48211 0.0606588 3.6068 0.181977C3.73148 0.303282 3.79382 0.448466 3.79382 0.617526V1.21481H10.5967V0.617526C10.5967 0.448466 10.6571 0.303282 10.7779 0.181977C10.8987 0.0606588 11.0459 0 11.2193 0C11.3985 0 11.5504 0.0606588 11.6751 0.181977C11.7998 0.303282 11.8622 0.448466 11.8622 0.617526V1.21481H13.2288C13.5388 1.21481 13.8104 1.33133 14.0434 1.56439C14.2765 1.79743 14.393 2.06896 14.393 2.37899V6.236C14.393 6.40135 14.3354 6.53886 14.2202 6.64853C14.105 6.7582 13.9674 6.81303 13.8074 6.81303C13.6473 6.81303 13.5109 6.75772 13.3981 6.64711C13.2852 6.53649 13.2288 6.39762 13.2288 6.23049V6.21575H1.16175V14.851H7.02318C7.18077 14.851 7.31633 14.9081 7.42988 15.0223C7.54343 15.1366 7.60021 15.273 7.60021 15.4316C7.60021 15.5979 7.54343 15.7368 7.42988 15.8481C7.31633 15.9595 7.18077 16.0152 7.02318 16.0152H1.16175ZM1.16175 5.05156H13.2288V2.37899H1.16175V5.05156ZM8.7644 15.428V13.788C8.7644 13.7204 8.7779 13.6531 8.80489 13.5863C8.83189 13.5195 8.87576 13.4518 8.9365 13.3831L13.221 9.11563C13.344 8.99928 13.479 8.91375 13.626 8.85903C13.773 8.80432 13.9191 8.77697 14.0642 8.77697C14.2226 8.77697 14.3743 8.80565 14.5195 8.86302C14.6646 8.92038 14.7979 9.0098 14.9194 9.13128L15.6685 9.88041C15.7869 9.99994 15.8721 10.1327 15.9243 10.2788C15.9765 10.4249 16.0026 10.5705 16.0026 10.7156C16.0026 10.8607 15.973 11.0094 15.9139 11.1616C15.8547 11.3139 15.7656 11.4478 15.6466 11.5634L11.3965 15.8431C11.3278 15.9038 11.2607 15.9477 11.195 15.9747C11.1294 16.0017 11.0616 16.0152 10.9915 16.0152H9.35156C9.18621 16.0152 9.04701 15.9587 8.93397 15.8456C8.82092 15.7326 8.7644 15.5934 8.7644 15.428ZM9.95896 14.8206H10.7235L13.1984 12.3303L12.8363 11.9456L12.454 11.5811L9.95896 14.0512V14.8206ZM12.834 11.9456L12.4493 11.5811L13.1984 12.3303L12.834 11.9456Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="text-base font-medium">Step 2</div>
+          </div>
+
+          <div
+            class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
+            x-bind:class="activeIndex > 2 ? 'border-green-500 text-green-500' : activeIndex === 2 ? 'border-sky-500 text-sky-500' : 'border-transparent text-zinc-500'"
+          >
+            <div class="w-10 h-10 relative">
+              <div
+                class="w-10 h-10 flex items-center justify-center left-0 top-0 absolute rounded-full"
+                x-bind:class="activeIndex > 2 ? 'bg-green-500 text-white' : activeIndex === 2 ? 'bg-sky-500 text-white' : 'bg-slate-100 text-zinc-500'"
+              >
+                <svg
+                  x-show="activeIndex > 2"
+                  width="16"
+                  height="12"
+                  viewbox="0 0 16 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 5.99997L5.66793 11L15 1"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <svg
+                  x-show="activeIndex <= 2"
+                  width="16"
+                  height="16"
+                  viewbox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.94334 14.9225L14.698 13.4446C14.7109 13.1776 14.6209 12.9567 14.428 12.7819C14.2351 12.6071 13.994 12.526 13.7046 12.5387H9.71187C9.4997 12.5514 9.29395 12.5387 9.09464 12.5006C8.89532 12.4625 8.70243 12.4116 8.51597 12.348L7.24292 11.9666C7.09546 11.9185 6.98466 11.8222 6.91051 11.6778C6.83636 11.5335 6.82324 11.3863 6.87117 11.2363C6.9191 11.0863 7.0121 10.9766 7.15016 10.9073C7.28823 10.838 7.43809 10.8319 7.59976 10.8892L8.86317 11.2992C9.00462 11.35 9.14607 11.3866 9.28752 11.4088C9.42897 11.4311 9.56543 11.4422 9.69689 11.4422H10.7795H10.7728C10.7728 11.1752 10.6827 10.9418 10.5027 10.742C10.3227 10.5422 10.1041 10.391 9.8469 10.2884L5.67089 8.72467H4.04099V13.2062L9.94334 14.9225ZM9.71147 15.9619L4.04099 14.36C4.0217 14.6969 3.88543 14.9591 3.63218 15.1466C3.37892 15.3341 3.14549 15.4279 2.93189 15.4279H1.1091C0.804096 15.4279 0.542991 15.3205 0.325787 15.1058C0.108596 14.891 0 14.6329 0 14.3313V8.72467C0 8.42312 0.108596 8.16498 0.325787 7.95025C0.543003 7.7355 0.804109 7.62813 1.1091 7.62813H5.65628C5.71954 7.62813 5.78279 7.6329 5.84605 7.64243C5.9093 7.65197 5.97573 7.66923 6.04534 7.69423L10.2134 9.24911C10.747 9.44617 11.1682 9.72586 11.4768 10.0882C11.7854 10.4505 11.9397 10.9019 11.9397 11.4422H13.7046C14.3422 11.4422 14.8842 11.6694 15.3305 12.124C15.7768 12.5785 16 13.1331 16 13.7878C16 13.8947 15.9759 14.004 15.9277 14.1159C15.8794 14.2277 15.8071 14.2964 15.7107 14.3218L10.3388 15.9619C10.2368 15.9873 10.1303 16 10.0191 16C9.90794 16 9.80539 15.9873 9.71147 15.9619ZM1.1091 14.3313H2.9126V8.72467H1.1091V14.3313ZM10.0459 0C10.1576 0 10.2713 0.018225 10.3871 0.0546747C10.503 0.0911117 10.609 0.139633 10.7052 0.200238L14.7752 3.07986C14.9208 3.18015 15.0343 3.3117 15.1158 3.4745C15.1973 3.63731 15.2381 3.80453 15.2381 3.97616V9.60191C15.2381 9.75765 15.1839 9.88876 15.0756 9.99523C14.9672 10.1017 14.8338 10.1549 14.6753 10.1549C14.5169 10.1549 14.3862 10.1017 14.2833 9.99523C14.1804 9.88876 14.129 9.75765 14.129 9.60191V3.94756L10.0494 1.13468L5.97951 3.94756V5.97855C5.97951 6.13429 5.92534 6.2654 5.817 6.37187C5.70865 6.47835 5.57523 6.53159 5.41676 6.53159C5.25827 6.53159 5.12759 6.47835 5.02471 6.37187C4.92184 6.2654 4.8704 6.13429 4.8704 5.97855V3.97616C4.8704 3.80194 4.90898 3.63442 4.98614 3.47362C5.06329 3.31282 5.17581 3.18157 5.32369 3.07986L9.40325 0.200238C9.49327 0.136671 9.59498 0.0874056 9.70838 0.0524434C9.82179 0.0174811 9.93431 0 10.0459 0ZM9.27788 5.10131C9.38075 5.10131 9.47077 5.06317 9.54792 4.98689C9.62508 4.91061 9.66365 4.82161 9.66365 4.7199C9.66365 4.6182 9.62508 4.5292 9.54792 4.45292C9.47077 4.37664 9.38075 4.3385 9.27788 4.3385C9.175 4.3385 9.08499 4.37664 9.00784 4.45292C8.93068 4.5292 8.8921 4.6182 8.8921 4.7199C8.8921 4.82161 8.93068 4.91061 9.00784 4.98689C9.08499 5.06317 9.175 5.10131 9.27788 5.10131ZM10.821 5.10131C10.9239 5.10131 11.0139 5.06317 11.091 4.98689C11.1682 4.91061 11.2068 4.82161 11.2068 4.7199C11.2068 4.6182 11.1682 4.5292 11.091 4.45292C11.0139 4.37664 10.9239 4.3385 10.821 4.3385C10.7181 4.3385 10.6281 4.37664 10.5509 4.45292C10.4738 4.5292 10.4352 4.6182 10.4352 4.7199C10.4352 4.82161 10.4738 4.91061 10.5509 4.98689C10.6281 5.06317 10.7181 5.10131 10.821 5.10131ZM9.27788 6.62694C9.38075 6.62694 9.47077 6.5888 9.54792 6.51252C9.62508 6.43623 9.66365 6.34724 9.66365 6.24553C9.66365 6.14382 9.62508 6.05483 9.54792 5.97855C9.47077 5.90226 9.38075 5.86412 9.27788 5.86412C9.175 5.86412 9.08499 5.90226 9.00784 5.97855C8.93068 6.05483 8.8921 6.14382 8.8921 6.24553C8.8921 6.34724 8.93068 6.43623 9.00784 6.51252C9.08499 6.5888 9.175 6.62694 9.27788 6.62694ZM10.821 6.62694C10.9239 6.62694 11.0139 6.5888 11.091 6.51252C11.1682 6.43623 11.2068 6.34724 11.2068 6.24553C11.2068 6.14382 11.1682 6.05483 11.091 5.97855C11.0139 5.90226 10.9239 5.86412 10.821 5.86412C10.7181 5.86412 10.6281 5.90226 10.5509 5.97855C10.4738 6.05483 10.4352 6.14382 10.4352 6.24553C10.4352 6.34724 10.4738 6.43623 10.5509 6.51252C10.6281 6.5888 10.7181 6.62694 10.821 6.62694Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="text-base font-medium">Step 3</div>
+          </div>
+
+          <div
+            class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
+            x-bind:class="activeIndex > 3 ? 'border-green-500 text-green-500' : activeIndex === 3 ? 'border-sky-500 text-sky-500' : 'border-transparent text-zinc-500'"
+          >
+            <div class="w-10 h-10 relative">
+              <div
+                class="w-10 h-10 flex items-center justify-center left-0 top-0 absolute rounded-full"
+                x-bind:class="activeIndex > 3 ? 'bg-green-500 text-white' : activeIndex === 3 ? 'bg-sky-500 text-white' : 'bg-slate-100 text-zinc-500'"
+              >
+                <svg
+                  x-show="activeIndex > 3"
+                  width="16"
+                  height="12"
+                  viewbox="0 0 16 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 5.99997L5.66793 11L15 1"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <svg
+                  x-show="activeIndex <= 3"
+                  width="17"
+                  height="16"
+                  viewbox="0 0 17 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.68279 14.4776V6.43447H0.930542L8.7917 0L16.6529 6.43447H14.9006V7.39198H13.7995V5.51526L8.7917 1.41712L3.78392 5.51526V13.3764H5.69894V14.4776H2.68279ZM10.4386 16L7.51821 13.0892L8.2938 12.3136L10.4386 14.4584L14.8815 10.0156L15.6475 10.7911L10.4386 16Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="text-base font-medium">Step 4</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div class="flex-col h-fit flex pt-10 items-center">
+            <div class="flex-col justify-start items-center gap-4 inline-flex">
+              <div>
+                <span class="text-sky-500 text-3xl font-extrabold">Find</span
+                ><span class="text-neutral-800 text-3xl font-extrabold">
+                  any home for sale.</span
+                >
+              </div>
+              <div
+                class="text-center text-neutral-800 text-base font-normal max-w-[651px]"
+              >
+                Search thousands of homes in your ideal location. Filter your
+                results to find a property that matches your budget and personal
+                criteria.
+              </div>
+            </div>
+
+            <div class="relative">
+              <img src="../public/image-1-1.png" alt="" class="z-10 relative" />
+              <img
+                @click="swiper.slideNext(1000)"
+                src="../public/image-1-2.png"
+                alt=""
+                class="z-0 absolute cursor-pointer right-[-157px] bottom-[29px] blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 transition-all duration-500"
+              />
+              <!-- <img src="../public/image-1-3.png" alt="" class="z-0 absolute right-[-200px] bottom-0" /> -->
+            </div>
+
+            <button
+              @click="swiper.slideNext(1000)"
+              class="w-48 h-14 px-10 py-4 bg-sky-500 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <div class="text-white text-[18px] font-semibold">NEXT</div>
+            </button>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="flex-col h-fit flex pt-10 items-center">
+            <div class="flex-col justify-start items-center gap-4 inline-flex">
+              <div>
+                <span class="text-sky-500 text-3xl font-extrabold"
+                  >Schedule</span
+                ><span class="text-neutral-800 text-3xl font-extrabold">
+                  a tour in 1 click.</span
+                >
+              </div>
+              <div
+                class="text-center text-neutral-800 text-base font-normal max-w-[651px]"
+              >
+                Choose your preferred date and time. Our team will set up your
+                viewing for you. All you need to do is show up and visit the
+                home, pressure-free.
+              </div>
+            </div>
+
+            <div class="relative">
+              <img src="../public/image-2-2.png" alt="" class="z-10 relative" />
+              <img
+                @click="swiper.slidePrev(1000)"
+                src="../public/image-1-1.png"
+                alt=""
+                class="z-0 absolute max-w-[500px] cursor-pointer bottom-[29px] left-[-200px] opacity-30 blur-[4px] hover:opacity-100 hover:blur-0 transition-all duration-500"
+              />
+              <img
+                @click="swiper.slideNext(1000)"
+                src="../public/image-2-3.png"
+                alt=""
+                class="z-0 absolute right-[-200px] cursor-pointer bottom-[40px] opacity-30 blur-[4px] hover:opacity-100 hover:blur-0 transition-all duration-500"
+              />
+            </div>
+
+            <button
+              @click="swiper.slideNext(1000)"
+              x-bind:disabled="swiper.isEnd"
+              class="w-48 h-14 px-10 py-4 bg-sky-500 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <div class="text-white text-[18px] font-semibold">NEXT</div>
+            </button>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="flex-col h-fit flex pt-10 items-center">
+            <div class="flex-col justify-start items-center gap-4 inline-flex">
+              <div>
+                <span class="text-neutral-800 text-3xl font-extrabold">
+                  Make an offer.
+                </span>
+                <span class="text-sky-500 text-3xl font-extrabold"
+                  >Get the best price.</span
+                >
+              </div>
+              <div
+                class="text-center text-neutral-800 text-base font-normal max-w-[651px]"
+              >
+                Ready to buy? Our licensed real estate advisors will negotiate
+                and make an offer on your behalf, so you get the best price for
+                your new home.
+              </div>
+            </div>
+
+            <div class="relative">
+              <img src="../public/image-3-2.png" alt="" class="z-10 relative" />
+              <img
+                @click="swiper.slidePrev(1000)"
+                src="../public/image-2-2.png"
+                alt=""
+                class="z-0 absolute max-w-[290px] cursor-pointer bottom-[10px] left-[-230px] opacity-30 blur-[4px] hover:opacity-100 hover:blur-0 transition-all duration-500"
+              />
+              <img
+                @click="swiper.slideNext(1000)"
+                src="../public/image-4-3.png"
+                alt=""
+                class="z-0 absolute max-w-[300px] right-[-250px] cursor-pointer bottom-[15px] opacity-30 blur-[4px] hover:opacity-100 hover:blur-0 transition-all duration-500"
+              />
+            </div>
+
+            <button
+              @click="swiper.slideNext(1000)"
+              class="w-48 h-14 px-10 py-4 bg-sky-500 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <div class="text-white text-[18px] font-semibold">NEXT</div>
+            </button>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="flex-col h-fit flex pt-10 items-center">
+            <div class="flex-col justify-start items-center gap-4 inline-flex">
+              <div>
+                <span class="text-neutral-800 text-3xl font-extrabold">
+                  Complete your home
+                </span>
+                <span class="text-sky-500 text-3xl font-extrabold"
+                  >purchase online.</span
+                >
+              </div>
+              <div
+                class="text-center text-neutral-800 text-base font-normal max-w-[651px]"
+              >
+                Our online licensed advisors will handle every step of the
+                home-buying process for you - from the first viewing to when you
+                get the keys in your hand.
+              </div>
+            </div>
+
+            <div class="relative">
+              <img src="../public/image-4-3.png" alt="" class="z-20 relative" />
+              <img
+                @click="swiper.slidePrev(1000)"
+                src="../public/image-3-2.png"
+                alt=""
+                class="z-10 absolute left-[-240px] max-w-[300px] bottom-[10px] cursor-pointer blur-[4px] hover:blur-0 transition-all duration-500"
+              />
+              <img
+                @click="swiper.slideTo(1, 1000)"
+                src="../public/image-2-2.png"
+                alt=""
+                class="z-0 absolute left-[-390px] max-w-[207px] bottom-[25px] cursor-pointer opacity-20 blur-[1.5px] hover:opacity-100 hover:blur-0 transition-all duration-500"
+              />
+            </div>
+
+            <div class="flex gap-4">
+              <button
+                class="w-48 h-14 py-4 border border-sky-500 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <div class="text-sky-500 text-[18px] font-semibold">
+                  ASK A QUESTION
+                </div>
+              </button>
+
+              <button
+                class="w-48 h-14 py-4 bg-sky-500 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <div class="text-white text-[18px] font-semibold">
+                  FIND A HOME
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
