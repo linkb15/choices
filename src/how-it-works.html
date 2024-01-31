@@ -5,21 +5,24 @@
   ></script>
   <link
     rel="stylesheet"
+    src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/src/output.css"
+  />
+  <link
+    rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
   />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
   <!-- Slider main container -->
   <div
-    x-data="{swiper: null, activeIndex: 3}"
+    x-data="{swiper: null, activeIndex: 0}"
     x-init="
 swiper = new Swiper($refs.container, {
   // loop: true,
   // centeredSlides: true,
-  initialSlide: 3,
+  initialSlide: 0,
   allowTouchMove: false,
   breakpoints: {
     640: {
@@ -256,14 +259,18 @@ swiper.on('slideChange', function () {
             </div>
 
             <div class="relative">
-              <img src="../public/image-1-1.png" alt="" class="z-10 relative" />
+              <img
+                src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-1-1.png"
+                alt=""
+                class="z-10 relative"
+              />
               <img
                 @click="swiper.slideNext(1000)"
-                src="../public/image-1-2.png"
+                src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-1-2.png"
                 alt=""
                 class="z-0 absolute cursor-pointer right-[-157px] bottom-[29px] blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 transition-all duration-500"
               />
-              <!-- <img src="../public/image-1-3.png" alt="" class="z-0 absolute right-[-200px] bottom-0" /> -->
+              <!-- <img src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-1-3.png" alt="" class="z-0 absolute right-[-200px] bottom-0" /> -->
             </div>
 
             <button
@@ -295,16 +302,20 @@ swiper.on('slideChange', function () {
             </div>
 
             <div class="relative">
-              <img src="../public/image-2-2.png" alt="" class="z-10 relative" />
+              <img
+                src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-2-2.png"
+                alt=""
+                class="z-10 relative"
+              />
               <img
                 @click="swiper.slidePrev(1000)"
-                src="../public/image-1-1.png"
+                src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-1-1.png"
                 alt=""
                 class="z-0 absolute max-w-[500px] cursor-pointer bottom-[29px] left-[-200px] opacity-30 blur-[4px] hover:opacity-100 hover:blur-0 transition-all duration-500"
               />
               <img
                 @click="swiper.slideNext(1000)"
-                src="../public/image-2-3.png"
+                src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-2-3.png"
                 alt=""
                 class="z-0 absolute right-[-200px] cursor-pointer bottom-[40px] opacity-30 blur-[4px] hover:opacity-100 hover:blur-0 transition-all duration-500"
               />
@@ -341,16 +352,20 @@ swiper.on('slideChange', function () {
             </div>
 
             <div class="relative">
-              <img src="../public/image-3-2.png" alt="" class="z-10 relative" />
+              <img
+                src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-3-2.png"
+                alt=""
+                class="z-10 relative"
+              />
               <img
                 @click="swiper.slidePrev(1000)"
-                src="../public/image-2-2.png"
+                src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-2-2.png"
                 alt=""
                 class="z-0 absolute max-w-[290px] cursor-pointer bottom-[10px] left-[-230px] opacity-30 blur-[4px] hover:opacity-100 hover:blur-0 transition-all duration-500"
               />
               <img
                 @click="swiper.slideNext(1000)"
-                src="../public/image-4-3.png"
+                src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-4-3.png"
                 alt=""
                 class="z-0 absolute max-w-[300px] right-[-250px] cursor-pointer bottom-[15px] opacity-30 blur-[4px] hover:opacity-100 hover:blur-0 transition-all duration-500"
               />
@@ -386,16 +401,20 @@ swiper.on('slideChange', function () {
             </div>
 
             <div class="relative">
-              <img src="../public/image-4-3.png" alt="" class="z-20 relative" />
+              <img
+                src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-4-3.png"
+                alt=""
+                class="z-20 relative"
+              />
               <img
                 @click="swiper.slidePrev(1000)"
-                src="../public/image-3-2.png"
+                src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-3-2.png"
                 alt=""
                 class="z-10 absolute left-[-240px] max-w-[300px] bottom-[10px] cursor-pointer blur-[4px] hover:blur-0 transition-all duration-500"
               />
               <img
                 @click="swiper.slideTo(1, 1000)"
-                src="../public/image-2-2.png"
+                src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-2-2.png"
                 alt=""
                 class="z-0 absolute left-[-390px] max-w-[207px] bottom-[25px] cursor-pointer opacity-20 blur-[1.5px] hover:opacity-100 hover:blur-0 transition-all duration-500"
               />
