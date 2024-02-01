@@ -1313,6 +1313,22 @@ video {
   text-align: center;
 }
 
+.font-\[\'var\(--font-bold\)\'\] {
+  font-family: 'var(--font-bold)';
+}
+
+.font-\[\\\'var\(--font-bold\)\\\'\] {
+  font-family: \'var(--font-bold)\';
+}
+
+.font-\[\/\\\'var\(--font-bold\)\/\\\'\] {
+  font-family: /\'var(--font-bold)/\';
+}
+
+.font-\[\'font-Lato-700\'\] {
+  font-family: 'font-Lato-700';
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
