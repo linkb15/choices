@@ -590,6 +590,10 @@ video {
   position: relative;
 }
 
+.sticky {
+  position: sticky;
+}
+
 .bottom-0 {
   bottom: 0px;
 }
@@ -742,6 +746,10 @@ video {
   bottom: 157px;
 }
 
+.top-\[60px\] {
+  top: 60px;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -758,8 +766,30 @@ video {
   z-index: 50;
 }
 
+.z-40 {
+  z-index: 40;
+}
+
+.my-28 {
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+}
+
+.my-\[1000px\] {
+  margin-top: 1000px;
+  margin-bottom: 1000px;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
+}
+
+.mt-\[100dvh\] {
+  margin-top: 100dvh;
+}
+
+.mt-\[1000px\] {
+  margin-top: 1000px;
 }
 
 .block {
@@ -839,8 +869,16 @@ video {
   height: 14px;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .min-h-\[367px\] {
   min-height: 367px;
+}
+
+.min-h-screen {
+  min-height: 100vh;
 }
 
 .\!w-\[300px\] {
@@ -1167,6 +1205,11 @@ video {
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -1236,6 +1279,16 @@ video {
   padding-bottom: 7rem;
 }
 
+.py-\[1000px\] {
+  padding-top: 1000px;
+  padding-bottom: 1000px;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .pb-2 {
   padding-bottom: 0.5rem;
 }
@@ -1291,6 +1344,11 @@ video {
 
 .text-\[9px\] {
   font-size: 9px;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .font-black {
@@ -1358,6 +1416,12 @@ video {
 
 .opacity-30 {
   opacity: 0.3;
+}
+
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .blur-\[1\.5px\] {
@@ -1483,6 +1547,10 @@ video {
     display: block;
   }
 
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:h-4 {
     height: 1rem;
   }
@@ -1540,6 +1608,15 @@ video {
   .md\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .md\:text-\[32px\] {
+    font-size: 32px;
   }
 }
 
