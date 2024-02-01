@@ -830,6 +830,10 @@ video {
   height: 14px;
 }
 
+.h-\[367px\] {
+  height: 367px;
+}
+
 .h-\[60px\] {
   height: 60px;
 }
@@ -1527,8 +1531,16 @@ video {
     min-width: 124px;
   }
 
+  .md\:max-w-\[768px\] {
+    max-width: 768px;
+  }
+
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:gap-12 {
+    gap: 3rem;
   }
 
   .md\:gap-20 {
@@ -1575,6 +1587,14 @@ video {
 
   .lg\:\!w-\[600px\] {
     width: 600px !important;
+  }
+
+  .lg\:max-w-\[1024px\] {
+    max-width: 1024px;
+  }
+
+  .lg\:gap-20 {
+    gap: 5rem;
   }
 }
 

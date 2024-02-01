@@ -9,10 +9,10 @@
     defer
     src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
   ></script>
-  <!-- <link rel="stylesheet" href="./output.css" /> -->
+  <link rel="stylesheet" href="./output.css" />
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.15/src/output.min.css"
+    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.16/src/output.min.css"
   />
   <link
     rel="stylesheet"
@@ -121,7 +121,6 @@
     </div>
   </div>
 
-  <!-- Slider main container -->
   <div
     x-data="{swiper: null, activeIndex: 0, isSticky:true}"
     x-init="
@@ -151,12 +150,10 @@ swiper.on('slideChange', function () {
   console.log('slide changed', swiper.realIndex, swiper.activeIndex, swiper);
   activeIndex = swiper.realIndex
 });
-
-
 "
     class="py-28"
   >
-    <div class="swiper relative h-fit w-full" x-ref="container">
+    <div class="swiper relative h-fit w-full md:max-w-[768px] lg:max-w-[1024px]" x-ref="container">
       <div
         class="w-[71px] md:w-28 z-50 fixed bottom-[157px] md:top-[120px] right-0 h-24 md:h-40 p-2 md:px-5 md:py-6 bg-slate-100 rounded-tl-lg rounded-bl-lg border border-gray-100 flex-col justify-center items-center gap-3 md:gap-4 inline-flex"
       >
@@ -191,7 +188,7 @@ swiper.on('slideChange', function () {
       >
         <div class="justify-center flex">
           <div
-            class="justify-start items-center gap-[26px] md:gap-20 inline-flex"
+            class="justify-start items-center gap-[26px] md:gap-12 lg:gap-20 inline-flex"
           >
             <div
               @click="swiper.slideTo(0, 1000)"
@@ -463,7 +460,7 @@ swiper.on('slideChange', function () {
         </div>
       </div>
 
-      <div class="swiper-wrapper flex items-center min-h-[367px]">
+      <div class="swiper-wrapper flex items-center h-[367px]">
         <div
           class="swiper-slide duration-500 w-full md:!w-[330px] lg:!w-[600px]"
           x-bind:class="activeIndex === 1 ? 'z-0 ' : activeIndex === 0 ? 'z-10  !scale-100' : ' !transition-all opacity-0 !scale-0'"
@@ -529,12 +526,7 @@ swiper.on('slideChange', function () {
         </div>
       </div>
 
-      <div
-        x-intersect:enter.margin.-50%.0="isSticky = false"
-        x-intersect:leave.margin.-50%.0="isSticky = true"
-        x-show="activeIndex !== 3"
-        class="flex justify-center"
-      >
+      <div x-show="activeIndex !== 3" class="flex justify-center">
         <button
           @click="swiper.slideNext(activeIndex === 0 ? 1000: 1000)"
           class="w-48 h-14 px-10 py-4 bg-sky-500 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
@@ -544,20 +536,25 @@ swiper.on('slideChange', function () {
       </div>
 
       <div
-        x-intersect:enter.margin.60px.0="isSticky = false"
-        x-intersect:leave.margin.60px.0="isSticky = true"
+        x-intersect:enter.margin.-250px.0.0.0="isSticky = true"
+        x-intersect:leave.margin.-250px.0.0.0="isSticky = false"
         x-show="activeIndex === 3"
         class="md:flex-row flex-col flex items-center justify-center gap-4"
       >
         <button
           class="w-48 h-14 py-4 border border-solid border-sky-500 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
           @click="
-            document.querySelector('.md-form.get-more-info-v7').style.display = 'block';
-            document.querySelector('.md-form.get-more-info-v7').scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          "
+              const el = document.querySelector('.md-form.get-more-info-v7');
+              if (el) {
+                el.style.display = 'block';
+                setTimeout(() => {
+                  el?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }, 300);
+              }
+            "
         >
           <div class="text-sky-500 text-[18px] font-semibold">
             ASK A QUESTION
