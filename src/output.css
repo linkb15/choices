@@ -1593,6 +1593,10 @@ video {
     max-width: 1024px;
   }
 
+  .lg\:max-w-\[1048px\] {
+    max-width: 1048px;
+  }
+
   .lg\:gap-20 {
     gap: 5rem;
   }
