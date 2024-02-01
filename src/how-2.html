@@ -1,13 +1,14 @@
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script
     defer
     src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
   ></script>
   <link rel="stylesheet" href="./output.css" />
-  <link
+  <!-- <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.10/src/output.min.css"
-  />
+  /> -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -120,72 +121,44 @@
     x-init="
 swiper = new Swiper($refs.container, {
   // loop: true,
-  // centeredSlides: true,
+  // autoHeight: true,
+  centeredSlides: true,
   initialSlide: 0,
   allowTouchMove: false,
+
+  slidesPerView: 1,
+  spaceBetween: 0,
   breakpoints: {
-    640: {
-      slidesPerView: 1,
-      spaceBetween: 0,
-    },
     768: {
-      slidesPerView: 1,
-      spaceBetween: 0,
+      slidesPerView: 'auto',
+      spaceBetween: -150,
     },
     1024: {
-      slidesPerView: 1,
-      spaceBetween: 0,
+      slidesPerView: 'auto',
+      // slidesPerView: 3,
+      spaceBetween: -150,
     },
   },
 })
 
 swiper.on('slideChange', function () {
-  console.log('slide changed');
-  activeIndex = swiper.activeIndex
+  console.log('slide changed', swiper.realIndex, swiper.activeIndex, swiper);
+  activeIndex = swiper.realIndex
 });
 
 
 "
-    class="py-20"
+    class="py-28"
   >
     <div class="swiper h-fit w-full" x-ref="container">
-      <div class="relative">
-        <input
-          type="text"
-          id="floating_filled"
-          class="block rounded-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-          placeholder=" "
-        />
-        <label
-          for="floating_filled"
-          class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
-          >Floating filled</label
-        >
-      </div>
-
       <div
-        class="w-28 fixed right-0 h-40 px-5 py-6 bg-slate-100 rounded-tl-lg rounded-bl-lg border border-gray-100 flex-col justify-center items-center gap-4 inline-flex"
+        class="w-[71px] md:w-28 z-50 fixed bottom-[157px] md:top-[120px] right-0 h-24 md:h-40 p-2 md:px-5 md:py-6 bg-slate-100 rounded-tl-lg rounded-bl-lg border border-gray-100 flex-col justify-center items-center gap-3 md:gap-4 inline-flex"
       >
-        <div class="text-neutral-800 text-xs font-medium">Featured on</div>
-        <div class="flex-col justify-start items-start gap-4 flex">
-          <div class="w-16 h-4 relative">
-            <div class="w-16 h-3.5 left-[0.08px] top-[1.17px] absolute"></div>
-          </div>
-          <div class="px-2 py-0.5 justify-center items-center inline-flex">
-            <div
-              class="self-stretch justify-start items-start gap-px inline-flex"
-            >
-              <div class="w-14 h-3.5 relative">
-                <div class="w-8 h-3 left-[20.43px] top-[1.88px] absolute"></div>
-              </div>
-            </div>
-          </div>
-          <div class="w-16 h-5 relative">
-            <img
-              class="w-14 h-4 left-[6.40px] top-[1.67px] absolute"
-              src="https://via.placeholder.com/59x15"
-            />
-          </div>
+        <div class="text-neutral-800 whitespace-nowrap text-[9px] md:text-xs font-medium">Featured on</div>
+        <div class="flex-col justify-center items-center gap-2 md:gap-4 flex">
+          <img class="h-3 w-[55px] md:w-14 md:h-4" src="../public/zillow.png" />
+          <img class="h-[11px] w-[41px] md:w-14 md:h-4" src="../public/redfin.png" />
+          <img class="h-[14px] w-[55px] md:w-14 md:h-4" src="../public/forbes.png" />
         </div>
       </div>
 
@@ -199,8 +172,8 @@ swiper.on('slideChange', function () {
           class="justify-start items-center gap-[26px] md:gap-20 inline-flex"
         >
           <div
-            @click="swiper.slideTo(0)"
-            class="flex-col min-w-[66px] cursor-pointer md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
+            @click="swiper.slideTo(0, 1000)"
+            class="flex-col min-w-[66px] md:min-w-[124px] cursor-pointer justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
             x-bind:class="activeIndex > 0 ? 'border-green-500 text-green-500' : activeIndex === 0 ? 'border-sky-500 text-sky-500' : 'border-transparent text-zinc-500'"
           >
             <div class="w-10 h-10 relative">
@@ -244,7 +217,8 @@ swiper.on('slideChange', function () {
           </div>
 
           <div
-            class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
+            @click="swiper.slideTo(1, 1000)"
+            class="flex-col min-w-[66px] md:min-w-[124px] cursor-pointer justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
             x-bind:class="activeIndex > 1 ? 'border-green-500 text-green-500' : activeIndex === 1 ? 'border-sky-500 text-sky-500' : 'border-transparent text-zinc-500'"
           >
             <div class="w-10 h-10 relative">
@@ -288,7 +262,8 @@ swiper.on('slideChange', function () {
           </div>
 
           <div
-            class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
+            @click="swiper.slideTo(2, 1000)"
+            class="flex-col min-w-[66px] md:min-w-[124px] cursor-pointer justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
             x-bind:class="activeIndex > 2 ? 'border-green-500 text-green-500' : activeIndex === 2 ? 'border-sky-500 text-sky-500' : 'border-transparent text-zinc-500'"
           >
             <div class="w-10 h-10 relative">
@@ -332,7 +307,8 @@ swiper.on('slideChange', function () {
           </div>
 
           <div
-            class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
+            @click="swiper.slideTo(3, 1000)"
+            class="flex-col min-w-[66px] md:min-w-[124px] cursor-pointer justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
             x-bind:class="activeIndex > 3 ? 'border-green-500 text-green-500' : activeIndex === 3 ? 'border-sky-500 text-sky-500' : 'border-transparent text-zinc-500'"
           >
             <div class="w-10 h-10 relative">
@@ -377,9 +353,183 @@ swiper.on('slideChange', function () {
         </div>
       </div>
 
+      <div
+        x-show="activeIndex === 0"
+        class="flex-col w-full px-4 py-6 justify-start items-center gap-4 inline-flex"
+      >
+        <div>
+          <span class="text-sky-500 text-3xl font-extrabold">Find</span
+          ><span class="text-neutral-800 text-3xl font-extrabold">
+            any home for sale.</span
+          >
+        </div>
+        <div
+          class="text-center text-neutral-800 text-base font-normal max-w-[651px]"
+        >
+          Search thousands of homes in your ideal location. Filter your results
+          to find a property that matches your budget and personal criteria.
+        </div>
+      </div>
+
+      <div
+        x-show="activeIndex === 1"
+        class="flex-col w-full px-4 py-6 justify-start items-center gap-4 inline-flex"
+      >
+        <div>
+          <span class="text-sky-500 text-3xl font-extrabold">Schedule</span
+          ><span class="text-neutral-800 text-3xl font-extrabold">
+            a tour in 1 click.</span
+          >
+        </div>
+        <div
+          class="text-center text-neutral-800 text-base font-normal max-w-[651px]"
+        >
+          Choose your preferred date and time. Our team will set up your viewing
+          for you. All you need to do is show up and visit the home,
+          pressure-free.
+        </div>
+      </div>
+
+      <div
+        x-show="activeIndex === 2"
+        class="flex-col w-full px-4 py-6 justify-start items-center gap-4 inline-flex"
+      >
+        <div>
+          <span class="text-neutral-800 text-3xl font-extrabold">
+            Make an offer.
+          </span>
+          <span class="text-sky-500 text-3xl font-extrabold"
+            >Get the best price.</span
+          >
+        </div>
+        <div
+          class="text-center text-neutral-800 text-base font-normal max-w-[651px]"
+        >
+          Ready to buy? Our licensed real estate advisors will negotiate and
+          make an offer on your behalf, so you get the best price for your new
+          home.
+        </div>
+      </div>
+
+      <div
+        x-show="activeIndex === 3"
+        class="flex-col w-full px-4 py-6 justify-start items-center gap-4 inline-flex"
+      >
+        <div>
+          <span class="text-neutral-800 text-3xl font-extrabold">
+            Complete your home
+          </span>
+          <span class="text-sky-500 text-3xl font-extrabold"
+            >purchase online.</span
+          >
+        </div>
+        <div
+          class="text-center text-neutral-800 text-base font-normal max-w-[651px]"
+        >
+          Our online licensed advisors will handle every step of the home-buying
+          process for you - from the first viewing to when you get the keys in
+          your hand.
+        </div>
+      </div>
+
+      <div class="swiper-wrapper flex items-center min-h-[367px]">
+        <div
+          class="swiper-slide duration-500 w-full md:!w-[330px] lg:!w-[600px]"
+          x-bind:class="activeIndex === 1 ? 'z-0 ' : activeIndex === 0 ? 'z-10  !scale-100' : ' !transition-all opacity-0 !scale-0'"
+        >
+          <div class="relative h-full flex justify-center items-center">
+            <img
+              @click="swiper.slideTo(0, 1000)"
+              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-1-1.png"
+              alt=""
+              class="hidden lg:block cursor-pointer transition-all duration-500"
+              x-bind:class="activeIndex !== 0 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-[76%] translate-x-[200px]' : 'scale-100'"
+            />
+            <img
+              @click="swiper.slideTo(0, 1000)"
+              src="../public/image-1-tablet.png"
+              alt=""
+              class="block lg:hidden cursor-pointer transition-all duration-500"
+              x-bind:class="activeIndex !== 0 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-[76%]' : 'scale-100'"
+            />
+          </div>
+        </div>
+        <div
+          class="swiper-slide transition-all duration-500 w-full md:!w-[300px]"
+          x-bind:class="activeIndex === 0 ? 'z-0 ' : activeIndex === 2 ? 'z-0 ' : activeIndex === 1 ? 'z-10 ' : ' !transition-all opacity-0 !scale-0'"
+        >
+          <div class="relative h-full flex justify-center items-center">
+            <img
+              @click="swiper.slideTo(1, 1000)"
+              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-2-2.png"
+              alt=""
+              class="cursor-pointer transition-all duration-500"
+              x-bind:class="activeIndex !== 1 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75' : 'scale-100'"
+            />
+          </div>
+        </div>
+        <div
+          class="swiper-slide transition-all duration-500 w-full md:!w-[350px]"
+          x-bind:class="activeIndex === 1 ? 'z-0 ' : activeIndex === 3 ? 'z-0 ' : activeIndex === 2 ?  'z-10 ' : ' !scale-0 opacity-0'"
+        >
+          <div class="relative h-full flex justify-center items-center">
+            <img
+              @click="swiper.slideTo(2, 1000)"
+              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-3-2.png"
+              alt=""
+              class="cursor-pointer transition-all duration-500"
+              x-bind:class="activeIndex !== 2 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75' : 'scale-100'"
+            />
+          </div>
+        </div>
+        <div
+          class="swiper-slide w-full md:!w-[350px]"
+          x-bind:class="activeIndex === 2 ? 'z-0' : activeIndex === 3 ? 'z-10' : 'opacity-0 !scale-0'"
+        >
+          <div class="relative h-full flex justify-center items-center">
+            <img
+              @click="swiper.slideTo(3, 1000)"
+              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-4-3.png"
+              alt=""
+              class="cursor-pointer transition-all duration-500"
+              x-bind:class="activeIndex !== 3 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75' : 'scale-100'"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div x-show="activeIndex !== 3" class="flex justify-center">
+        <button
+          @click="swiper.slideNext(activeIndex === 0 ? 1000: 1000)"
+          class="w-48 h-14 px-10 py-4 bg-sky-500 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          <div class="text-white text-[18px] font-semibold">NEXT</div>
+        </button>
+      </div>
+
+      <div x-show="activeIndex === 3" class="md:flex-row flex-col flex items-center justify-center gap-4">
+        <button
+          class="w-48 h-14 py-4 border border-solid border-sky-500 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
+          @click="
+            document.querySelector('.md-form.get-more-info-v7').style.display =
+              'block';
+          "
+        >
+          <div class="text-sky-500 text-[18px] font-semibold">
+            ASK A QUESTION
+          </div>
+        </button>
+
+        <button
+          @click="location.href='/listing'"
+          class="w-48 h-14 py-4 bg-sky-500 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          <div class="text-white text-[18px] font-semibold">FIND A HOME</div>
+        </button>
+      </div>
+
       <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
+      <!-- <div class="swiper-wrapper">
         <div class="swiper-slide">
           <div class="flex-col h-fit flex pt-10 items-center">
             <div class="flex-col justify-start items-center gap-4 inline-flex">
@@ -410,7 +560,6 @@ swiper.on('slideChange', function () {
                 alt=""
                 class="z-0 absolute cursor-pointer right-[-157px] bottom-[29px] blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 transition-all duration-500"
               />
-              <!-- <img src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.8/public/image-1-3.png" alt="" class="z-0 absolute right-[-200px] bottom-0" /> -->
             </div>
 
             <button
@@ -584,7 +733,7 @@ swiper.on('slideChange', function () {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </body>
