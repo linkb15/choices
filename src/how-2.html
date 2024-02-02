@@ -9,11 +9,11 @@
     defer
     src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
   ></script>
-  <link rel="stylesheet" href="./output.css" />
-  <!-- <link
+  <!-- <link rel="stylesheet" href="./output.css" /> -->
+  <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.32/src/output.min.css"
-  /> -->
+    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.33/src/output.min.css"
+  />
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -183,6 +183,7 @@ swiper.on('slideChange', function () {
     >
       <div
         class="w-[71px] md:w-28 z-50 fixed bottom-[157px] lg:translate-y-0 lg:top-[120px] md:top-1/2 md:-translate-y-1/2 right-0 h-24 md:h-40 p-2 md:px-5 md:py-6 bg-slate-100 rounded-tl-lg rounded-bl-lg border border-gray-100 flex-col justify-center items-center gap-3 md:gap-4 inline-flex"
+        x-bind:class="!isSticky ? 'hidden lg:inline-flex' : ''"
       >
         <div
           class="text-neutral-800 whitespace-nowrap text-[9px] md:text-xs font-medium"
