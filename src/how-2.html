@@ -9,11 +9,11 @@
     defer
     src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
   ></script>
-  <!-- <link rel="stylesheet" href="./output.css" /> -->
-  <link
+  <link rel="stylesheet" href="./output.css" />
+  <!-- <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.32/src/output.min.css"
-  />
+  /> -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -293,10 +293,6 @@ swiper.on('slideChange', function () {
             <div
               @click="
                 swiper.slideTo(0, 1000)
-                document.querySelector('.steps')?.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
               "
               class="flex-col min-w-[66px] md:min-w-[124px] cursor-pointer justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
               x-bind:class="activeIndex > 0 ? 'border-green-500 text-green-500' : activeIndex === 0 ? 'border-sky-500 text-sky-500' : 'border-transparent text-zinc-500'"
@@ -345,10 +341,6 @@ swiper.on('slideChange', function () {
               @click="
               if (activeIndex >= 1) {
                 swiper.slideTo(1, 1000)
-                document.querySelector('.steps')?.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
               }
               "
               class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
@@ -399,10 +391,6 @@ swiper.on('slideChange', function () {
                 console.log(activeIndex)
                 if (activeIndex >= 2) {
                   swiper.slideTo(2, 1000)
-                  document.querySelector('.steps')?.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                  });
                 }
               "
               class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
@@ -452,10 +440,6 @@ swiper.on('slideChange', function () {
               @click="
                 if (activeIndex >= 3) {
                   swiper.slideTo(3, 1000)
-                  document.querySelector('.steps')?.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                  });
                 }
               "
               class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
@@ -504,7 +488,7 @@ swiper.on('slideChange', function () {
         </div>
       </div>
 
-      <div class="titles h-[160px] md:h-auto scroll-mt-[156px]">
+      <div class="titles h-[180px] md:h-auto scroll-mt-[147px]">
         <div
           x-show="activeIndex === 0"
           class="flex-col w-full px-4 py-3 lg:py-6 justify-start items-center gap-3 inline-flex"
@@ -606,14 +590,14 @@ swiper.on('slideChange', function () {
           <div class="relative h-full flex justify-center items-center">
             <img
               @click="swiper.slideTo(0, 1000)"
-              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.26/public/image-1-2.png"
+              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.33/public/image-1-2.png"
               alt=""
               class="hidden lg:block transition-all duration-500"
               x-bind:class="activeIndex !== 0 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-[76%] translate-x-[110px]  cursor-pointer' : 'scale-100'"
             />
             <img
               @click="swiper.slideTo(0, 1000)"
-              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.26/public/image-1-tablet.png"
+              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.33/public/image-1-tablet.png"
               alt=""
               class="block lg:hidden max-w-[320px] md:max-w-[372px] transition-all duration-500"
               x-bind:class="activeIndex !== 0 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-[76%] cursor-pointer' : 'scale-100'"
@@ -627,7 +611,7 @@ swiper.on('slideChange', function () {
           <div class="relative h-full flex justify-center items-center">
             <img
               @click="swiper.slideTo(1, 1000)"
-              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.26/public/image-2-2.png"
+              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.33/public/image-2-2.png"
               alt=""
               class="max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[600px] transition-all duration-500"
               x-bind:class="activeIndex !== 1 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75 cursor-pointer' : 'scale-100'"
@@ -641,7 +625,7 @@ swiper.on('slideChange', function () {
           <div class="relative h-full flex justify-center items-center">
             <img
               @click="swiper.slideTo(2, 1000)"
-              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.26/public/image-3-2.png"
+              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.33/public/image-3-2.png"
               alt=""
               class="transition-all max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[600px] duration-500"
               x-bind:class="activeIndex !== 2 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75 cursor-pointer' : 'scale-100'"
@@ -655,7 +639,7 @@ swiper.on('slideChange', function () {
           <div class="relative h-full flex justify-center items-center">
             <img
               @click="swiper.slideTo(3, 1000)"
-              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.26/public/image-4-3.png"
+              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.33/public/image-4-3.png"
               alt=""
               class="transition-all max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[600px] duration-500"
               x-bind:class="activeIndex !== 3 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75 cursor-pointer' : 'scale-100'"
