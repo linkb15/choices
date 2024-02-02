@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="./output.css" />
   <!-- <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.26/src/output.min.css"
+    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.28/src/output.min.css"
   /> -->
   <link
     rel="stylesheet"
@@ -158,6 +158,21 @@ swiper.on('slideChange', function () {
     behavior: 'smooth',
     block: 'start'
   });
+
+  if (swiper.realIndex !== 3) {
+    const el = document.querySelector('.md-form.get-more-info-v7');
+    const footNote = document.querySelector('.contact-us-footnote');
+
+    if (footNote) {
+      footNote.style.display = 'none';
+    }
+
+    document.body.style = 'padding-bottom: 0px;'
+
+    if (el) {
+      el.style.display = 'none';
+    }
+  }
 });
 "
     class="py-20 lg:py-28"
@@ -167,7 +182,7 @@ swiper.on('slideChange', function () {
       x-ref="container"
     >
       <div
-        class="w-[71px] md:w-28 z-50 fixed bottom-[157px] md:top-[120px] right-0 h-24 md:h-40 p-2 md:px-5 md:py-6 bg-slate-100 rounded-tl-lg rounded-bl-lg border border-gray-100 flex-col justify-center items-center gap-3 md:gap-4 inline-flex"
+        class="w-[71px] md:w-28 z-50 fixed bottom-[157px] lg:translate-y-0 lg:top-[120px] md:top-1/2 md:-translate-y-1/2 right-0 h-24 md:h-40 p-2 md:px-5 md:py-6 bg-slate-100 rounded-tl-lg rounded-bl-lg border border-gray-100 flex-col justify-center items-center gap-3 md:gap-4 inline-flex"
       >
         <div
           class="text-neutral-800 whitespace-nowrap text-[9px] md:text-xs font-medium"
@@ -593,15 +608,15 @@ swiper.on('slideChange', function () {
               @click="swiper.slideTo(0, 1000)"
               src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.26/public/image-1-2.png"
               alt=""
-              class="hidden lg:block cursor-pointer transition-all duration-500"
-              x-bind:class="activeIndex !== 0 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-[76%] translate-x-[110px]' : 'scale-100'"
+              class="hidden lg:block transition-all duration-500"
+              x-bind:class="activeIndex !== 0 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-[76%] translate-x-[110px]  cursor-pointer' : 'scale-100'"
             />
             <img
               @click="swiper.slideTo(0, 1000)"
               src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.26/public/image-1-tablet.png"
               alt=""
-              class="block lg:hidden cursor-pointer max-w-[320px] md:max-w-[372px] transition-all duration-500"
-              x-bind:class="activeIndex !== 0 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-[76%]' : 'scale-100'"
+              class="block lg:hidden max-w-[320px] md:max-w-[372px] transition-all duration-500"
+              x-bind:class="activeIndex !== 0 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-[76%] cursor-pointer' : 'scale-100'"
             />
           </div>
         </div>
@@ -614,8 +629,8 @@ swiper.on('slideChange', function () {
               @click="swiper.slideTo(1, 1000)"
               src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.26/public/image-2-2.png"
               alt=""
-              class="cursor-pointer max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] transition-all duration-500"
-              x-bind:class="activeIndex !== 1 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75' : 'scale-100'"
+              class="max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] transition-all duration-500"
+              x-bind:class="activeIndex !== 1 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75 cursor-pointer' : 'scale-100'"
             />
           </div>
         </div>
@@ -628,8 +643,8 @@ swiper.on('slideChange', function () {
               @click="swiper.slideTo(2, 1000)"
               src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.26/public/image-3-2.png"
               alt=""
-              class="cursor-pointer transition-all max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] duration-500"
-              x-bind:class="activeIndex !== 2 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75' : 'scale-100'"
+              class="transition-all max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] duration-500"
+              x-bind:class="activeIndex !== 2 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75 cursor-pointer' : 'scale-100'"
             />
           </div>
         </div>
@@ -642,8 +657,8 @@ swiper.on('slideChange', function () {
               @click="swiper.slideTo(3, 1000)"
               src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.26/public/image-4-3.png"
               alt=""
-              class="cursor-pointer transition-all max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] duration-500"
-              x-bind:class="activeIndex !== 3 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75' : 'scale-100'"
+              class="transition-all max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] duration-500"
+              x-bind:class="activeIndex !== 3 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75 cursor-pointer' : 'scale-100'"
             />
           </div>
         </div>
