@@ -9,10 +9,10 @@
     defer
     src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
   ></script>
-  <!-- <link rel="stylesheet" href="./output.css" /> -->
+  <link rel="stylesheet" href="./output.css" />
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.35/src/output.min.css"
+    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.36/src/output.min.css"
   />
   <link
     rel="stylesheet"
@@ -149,54 +149,53 @@
   <div
     x-data="{swiper: null, activeIndex: 0, isSticky:true}"
     x-init="
-  swiper = new Swiper($refs.container, {
-    // loop: true,
-    // autoHeight: true,
-    centeredSlides: true,
-    initialSlide: 0,
-    allowTouchMove: false,
+    swiper = new Swiper($refs.container, {
+      // loop: true,
+      // autoHeight: true,
+      centeredSlides: true,
+      initialSlide: 0,
+      allowTouchMove: false,
 
-    slidesPerView: 1,
-    spaceBetween: 0,
-    breakpoints: {
-      768: {
-        slidesPerView: 'auto',
-        spaceBetween: -150,
+      slidesPerView: 1,
+      spaceBetween: 0,
+      breakpoints: {
+        768: {
+          slidesPerView: 'auto',
+          spaceBetween: -150,
+        },
+        1024: {
+          slidesPerView: 'auto',
+          // slidesPerView: 3,
+          spaceBetween: -150,
+        },
       },
-      1024: {
-        slidesPerView: 'auto',
-        // slidesPerView: 3,
-        spaceBetween: -150,
-      },
-    },
-  })
+    })
 
 
-  swiper.on('slideChange', function () {
-    console.log('slide changed', swiper.realIndex, swiper.activeIndex, swiper);
-    activeIndex = swiper.realIndex
+    swiper.on('slideChange', function () {
+      activeIndex = swiper.realIndex
 
-    document.querySelector('.titles')?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
+      document.querySelector('.titles')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+
+      if (swiper.realIndex !== 3) {
+        const el = document.querySelector('.md-form.get-more-info-v7');
+        const footNote = document.querySelector('.contact-us-footnote');
+
+        if (footNote) {
+          footNote.style.display = 'none';
+        }
+
+        document.body.style = 'padding-bottom: 0px;'
+
+        if (el) {
+          el.style.display = 'none';
+        }
+      }
     });
-
-    if (swiper.realIndex !== 3) {
-      const el = document.querySelector('.md-form.get-more-info-v7');
-      const footNote = document.querySelector('.contact-us-footnote');
-
-      if (footNote) {
-        footNote.style.display = 'none';
-      }
-
-      document.body.style = 'padding-bottom: 0px;'
-
-      if (el) {
-        el.style.display = 'none';
-      }
-    }
-  });
-  "
+    "
     class="py-20 lg:py-28"
   >
     <div
@@ -315,9 +314,9 @@
           >
             <div
               @click="
-                  swiper.slideTo(0, 1000)
-                  gtmClicks(activeIndex+1, 'step-1')
-                "
+                gtmClicks(activeIndex+1, 'step-1')
+                swiper.slideTo(0, 1000)
+                  "
               class="flex-col min-w-[66px] md:min-w-[124px] cursor-pointer justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
               x-bind:class="activeIndex > 0 ? 'border-green-500 text-green-500' : activeIndex === 0 ? 'border-sky-500 text-sky-500' : 'border-transparent text-zinc-500'"
             >
@@ -363,11 +362,11 @@
 
             <div
               @click="
-                if (activeIndex >= 1) {
-                  swiper.slideTo(1, 1000)
-                  gtmClicks(activeIndex+1, 'step-2')
-                }
-                "
+                  if (activeIndex >= 1) {
+                    gtmClicks(activeIndex+1, 'step-2')
+                    swiper.slideTo(1, 1000)
+                  }
+                  "
               class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
               x-bind:class="activeIndex > 1 ? 'border-green-500 text-green-500 cursor-pointer' : activeIndex === 1 ? 'border-sky-500 text-sky-500 cursor-pointer' : 'border-transparent text-zinc-500'"
             >
@@ -413,11 +412,11 @@
 
             <div
               @click="
-                  if (activeIndex >= 2) {
-                    swiper.slideTo(2, 1000)
-                    gtmClicks(activeIndex+1, 'step-3')
-                  }
-                "
+                    if (activeIndex >= 2) {
+                        gtmClicks(activeIndex+1, 'step-3')
+                      swiper.slideTo(2, 1000)
+                    }
+                  "
               class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
               x-bind:class="activeIndex > 2 ? 'border-green-500 text-green-500 cursor-pointer' : activeIndex === 2 ? 'border-sky-500 text-sky-500 cursor-pointer' : 'border-transparent text-zinc-500'"
             >
@@ -463,12 +462,12 @@
 
             <div
               @click="
-                  if (activeIndex >= 3) {
-                    swiper.slideTo(3, 1000)
+                    if (activeIndex >= 3) {
                     gtmClicks(activeIndex+1, 'step-4')
-                  }
+                      swiper.slideTo(3, 1000)
+                    }
 
-                "
+                  "
               class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
               x-bind:class="activeIndex > 3 ? 'border-green-500 text-green-500' : activeIndex === 3 ? 'border-sky-500 text-sky-500 cursor-pointer' : 'border-transparent text-zinc-500'"
             >
@@ -515,7 +514,9 @@
         </div>
       </div>
 
-      <div class="titles h-[160px] md:h-auto scroll-mt-[147px]">
+      <div
+        class="titles h-[180px] landscape:h-[130px] md:h-auto scroll-mt-[147px]"
+      >
         <div
           x-show="activeIndex === 0"
           class="flex-col w-full px-4 py-3 lg:py-6 justify-start items-center gap-3 inline-flex"
@@ -609,9 +610,11 @@
         </div>
       </div>
 
-      <div class="swiper-wrapper flex items-center !h-[323px] md:!h-full">
+      <div
+        class="swiper-wrapper flex items-center landscape:!h-[470px] !h-[323px] md:!h-full"
+      >
         <div
-          class="swiper-slide duration-500 w-full sm:!max-w-[330px] md:!max-w-[372px] lg:!max-w-[400px] xl:!max-w-[500px] 2xl:!max-w-[625px] 3xl:!max-w-[750px]"
+          class="swiper-slide duration-500 w-full landscape:max-w-full sm:max-w-[330px] md:max-w-[372px] lg:max-w-[400px] xl:!max-w-[500px] 2xl:!max-w-[625px] 3xl:!max-w-[750px]"
           x-bind:class="activeIndex === 1 ? 'z-0 ' : activeIndex === 0 ? 'z-10  !scale-100' : ' !transition-all opacity-0 !scale-0'"
         >
           <div class="relative h-full flex justify-center items-center">
@@ -626,13 +629,13 @@
               @click="swiper.slideTo(0, 1000)"
               src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.33/public/image-1-tablet.png"
               alt=""
-              class="block lg:hidden max-w-[320px] md:max-w-[372px] transition-all duration-500"
+              class="block lg:hidden landscape:max-w-[570px] max-w-[320px] md:max-w-[372px] transition-all duration-500"
               x-bind:class="activeIndex !== 0 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-[76%] cursor-pointer' : 'scale-100'"
             />
           </div>
         </div>
         <div
-          class="swiper-slide transition-all duration-500 w-full md:!w-[372px] sm:!max-w-[320px] xl:!max-w-[400px] 2xl:!max-w-[480px] 3xl:!max-w-[600px]"
+          class="swiper-slide transition-all duration-500 w-full md:max-w-[372px] landscape:max-w-full sm:max-w-[320px] xl:max-w-[400px] 2xl:!max-w-[480px] 3xl:!max-w-[600px]"
           x-bind:class="activeIndex === 0 ? 'z-0 ' : activeIndex === 2 ? 'z-0 ' : activeIndex === 1 ? 'z-10 ' : ' !transition-all opacity-0 !scale-0'"
         >
           <div class="relative h-full flex justify-center items-center">
@@ -640,13 +643,13 @@
               @click="swiper.slideTo(1, 1000)"
               src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.33/public/image-2-2.png"
               alt=""
-              class="max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[600px] transition-all duration-500"
+              class="max-w-[320px] landscape:max-w-[400px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[600px] transition-all duration-500"
               x-bind:class="activeIndex !== 1 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75 cursor-pointer' : 'scale-100'"
             />
           </div>
         </div>
         <div
-          class="swiper-slide transition-all duration-500 w-full sm:!max-w-[320px] md:!max-w-[372px] xl:!max-w-[400px] 2xl:!max-w-[480px] 3xl:!max-w-[600px]"
+          class="swiper-slide transition-all duration-500 w-full landscape:max-w-full sm:max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:!max-w-[480px] 3xl:!max-w-[600px]"
           x-bind:class="activeIndex === 1 ? 'z-0 ' : activeIndex === 3 ? 'z-0 ' : activeIndex === 2 ?  'z-10 ' : ' !scale-0 opacity-0'"
         >
           <div class="relative h-full flex justify-center items-center">
@@ -654,13 +657,13 @@
               @click="swiper.slideTo(2, 1000)"
               src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.33/public/image-3-2.png"
               alt=""
-              class="transition-all max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[600px] duration-500"
+              class="transition-all landscape:max-w-[400px] max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[600px] duration-500"
               x-bind:class="activeIndex !== 2 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75 cursor-pointer' : 'scale-100'"
             />
           </div>
         </div>
         <div
-          class="swiper-slide w-full sm:!max-w-[320px] md:!max-w-[372px] xl:!max-w-[400px] 2xl:!max-w-[480px] 3xl:!max-w-[560px]"
+          class="swiper-slide w-full sm:max-w-[320px] md:max-w-[372px] landscape:max-w-full xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[560px]"
           x-bind:class="activeIndex === 2 ? 'z-0' : activeIndex === 3 ? 'z-10' : 'opacity-0 !scale-0'"
         >
           <div class="relative h-full flex justify-center items-center">
@@ -668,7 +671,7 @@
               @click="swiper.slideTo(3, 1000)"
               src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.33/public/image-4-3.png"
               alt=""
-              class="transition-all max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[600px] duration-500"
+              class="transition-all max-w-[320px] landscape:max-w-[400px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[600px] duration-500"
               x-bind:class="activeIndex !== 3 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75 cursor-pointer' : 'scale-100'"
             />
           </div>
@@ -682,9 +685,9 @@
         <div x-show="activeIndex !== 3" class="flex justify-center">
           <button
             @click="
-                swiper.slideNext(activeIndex === 0 ? 1000: 1000)
-                gtmClicks(activeIndex+1, 'next')
-              "
+            gtmClicks(activeIndex+1, 'next')
+                  swiper.slideNext(activeIndex === 0 ? 1000: 1000)
+                "
             class="w-48 h-14 px-10 py-4 transition-colors lg:hover:bg-sky-400 bg-sky-500 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
           >
             <div class="text-white text-[18px] font-semibold">NEXT</div>
@@ -698,30 +701,33 @@
           <button
             class="w-48 h-14 py-4 border border-solid text-sky-500 border-sky-500 lg:hover:bg-sky-400 lg:hover:text-white lg:hover:border-sky-400 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
             @click="
-                  const el = document.querySelector('.md-form.get-more-info-v7');
-                  const footNote = document.querySelector('.contact-us-footnote');
+            gtmClicks(activeIndex+1, 'ask-a-question')
+                    const el = document.querySelector('.md-form.get-more-info-v7');
+                    const footNote = document.querySelector('.contact-us-footnote');
 
-                  if (footNote) {
-                    footNote.style.display = 'block';
-                  }
+                    if (footNote) {
+                      footNote.style.display = 'block';
+                    }
 
-                  document.body.style = 'padding-bottom: 80px;'
-                  if (el) {
-                    el.style.display = 'block';
-                    setTimeout(() => {
-                      el?.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center'
-                      });
-                    }, 300);
-                  }
-                "
+                    document.body.style = 'padding-bottom: 80px;'
+                    if (el) {
+                      el.style.display = 'block';
+                      setTimeout(() => {
+                        el?.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'center'
+                        });
+                      }, 300);
+                    }
+                  "
           >
             <div class="text-[18px] font-semibold">ASK A QUESTION</div>
           </button>
 
           <button
-            @click="location.href='/listing'"
+            @click="
+            gtmClicks(activeIndex+1, 'find-a-home')
+            location.href='/listing'"
             class="w-48 h-14 py-4 bg-sky-500 lg:hover:bg-sky-400 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
           >
             <div class="text-white text-[18px] font-semibold">FIND A HOME</div>
@@ -732,7 +738,7 @@
   </div>
 </body>
 
-<div class="contact-us-footnote text-center">
+<div class="contact-us-footnote text-center text-neutral-800">
   <a href="/listing" class="underline !text-sky-500"
     >Browse thousands of property options</a
   >
