@@ -9,11 +9,11 @@
     defer
     src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
   ></script>
-  <link rel="stylesheet" href="./output.css" />
-  <!-- <link
+  <!-- <link rel="stylesheet" href="./output.css" /> -->
+  <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.34/src/output.min.css"
-  /> -->
+    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.35/src/output.min.css"
+  />
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -42,6 +42,27 @@
       display: none;
     }
   </style>
+
+  <script>
+    const gtmClicks = (activeIndex, clickItem) => {
+      t = {
+        event: 'funnel_click_gigi',
+        user_id: window?.siteAppVm?.user?.id,
+        timestamp: +new Date(),
+        activeStep: activeIndex?.toString(),
+        clickItem: clickItem?.toString(),
+      }
+      window?.siteDataLayer?.push?.({
+        ...t,
+        phone_number: window?.siteAppVm?.user?.phoneNumber,
+        email: window?.siteAppVm?.user?.account,
+      }),
+        window?.gtag?.('event', 'funnel_click_gigi', {
+          ...t,
+          send_to: ' G-B2FRN3VGWQ',
+        })
+    }
+  </script>
 </head>
 
 <body class="min-h-screen h-full">
@@ -128,53 +149,54 @@
   <div
     x-data="{swiper: null, activeIndex: 0, isSticky:true}"
     x-init="
-swiper = new Swiper($refs.container, {
-  // loop: true,
-  // autoHeight: true,
-  centeredSlides: true,
-  initialSlide: 0,
-  allowTouchMove: false,
+  swiper = new Swiper($refs.container, {
+    // loop: true,
+    // autoHeight: true,
+    centeredSlides: true,
+    initialSlide: 0,
+    allowTouchMove: false,
 
-  slidesPerView: 1,
-  spaceBetween: 0,
-  breakpoints: {
-    768: {
-      slidesPerView: 'auto',
-      spaceBetween: -150,
+    slidesPerView: 1,
+    spaceBetween: 0,
+    breakpoints: {
+      768: {
+        slidesPerView: 'auto',
+        spaceBetween: -150,
+      },
+      1024: {
+        slidesPerView: 'auto',
+        // slidesPerView: 3,
+        spaceBetween: -150,
+      },
     },
-    1024: {
-      slidesPerView: 'auto',
-      // slidesPerView: 3,
-      spaceBetween: -150,
-    },
-  },
-})
+  })
 
-swiper.on('slideChange', function () {
-  console.log('slide changed', swiper.realIndex, swiper.activeIndex, swiper);
-  activeIndex = swiper.realIndex
 
-  document.querySelector('.titles')?.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
+  swiper.on('slideChange', function () {
+    console.log('slide changed', swiper.realIndex, swiper.activeIndex, swiper);
+    activeIndex = swiper.realIndex
+
+    document.querySelector('.titles')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+    if (swiper.realIndex !== 3) {
+      const el = document.querySelector('.md-form.get-more-info-v7');
+      const footNote = document.querySelector('.contact-us-footnote');
+
+      if (footNote) {
+        footNote.style.display = 'none';
+      }
+
+      document.body.style = 'padding-bottom: 0px;'
+
+      if (el) {
+        el.style.display = 'none';
+      }
+    }
   });
-
-  if (swiper.realIndex !== 3) {
-    const el = document.querySelector('.md-form.get-more-info-v7');
-    const footNote = document.querySelector('.contact-us-footnote');
-
-    if (footNote) {
-      footNote.style.display = 'none';
-    }
-
-    document.body.style = 'padding-bottom: 0px;'
-
-    if (el) {
-      el.style.display = 'none';
-    }
-  }
-});
-"
+  "
     class="py-20 lg:py-28"
   >
     <div
@@ -293,8 +315,9 @@ swiper.on('slideChange', function () {
           >
             <div
               @click="
-                swiper.slideTo(0, 1000)
-              "
+                  swiper.slideTo(0, 1000)
+                  gtmClicks(activeIndex+1, 'step-1')
+                "
               class="flex-col min-w-[66px] md:min-w-[124px] cursor-pointer justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
               x-bind:class="activeIndex > 0 ? 'border-green-500 text-green-500' : activeIndex === 0 ? 'border-sky-500 text-sky-500' : 'border-transparent text-zinc-500'"
             >
@@ -340,10 +363,11 @@ swiper.on('slideChange', function () {
 
             <div
               @click="
-              if (activeIndex >= 1) {
-                swiper.slideTo(1, 1000)
-              }
-              "
+                if (activeIndex >= 1) {
+                  swiper.slideTo(1, 1000)
+                  gtmClicks(activeIndex+1, 'step-2')
+                }
+                "
               class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
               x-bind:class="activeIndex > 1 ? 'border-green-500 text-green-500 cursor-pointer' : activeIndex === 1 ? 'border-sky-500 text-sky-500 cursor-pointer' : 'border-transparent text-zinc-500'"
             >
@@ -389,11 +413,11 @@ swiper.on('slideChange', function () {
 
             <div
               @click="
-                console.log(activeIndex)
-                if (activeIndex >= 2) {
-                  swiper.slideTo(2, 1000)
-                }
-              "
+                  if (activeIndex >= 2) {
+                    swiper.slideTo(2, 1000)
+                    gtmClicks(activeIndex+1, 'step-3')
+                  }
+                "
               class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
               x-bind:class="activeIndex > 2 ? 'border-green-500 text-green-500 cursor-pointer' : activeIndex === 2 ? 'border-sky-500 text-sky-500 cursor-pointer' : 'border-transparent text-zinc-500'"
             >
@@ -439,10 +463,12 @@ swiper.on('slideChange', function () {
 
             <div
               @click="
-                if (activeIndex >= 3) {
-                  swiper.slideTo(3, 1000)
-                }
-              "
+                  if (activeIndex >= 3) {
+                    swiper.slideTo(3, 1000)
+                    gtmClicks(activeIndex+1, 'step-4')
+                  }
+
+                "
               class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
               x-bind:class="activeIndex > 3 ? 'border-green-500 text-green-500' : activeIndex === 3 ? 'border-sky-500 text-sky-500 cursor-pointer' : 'border-transparent text-zinc-500'"
             >
@@ -583,7 +609,7 @@ swiper.on('slideChange', function () {
         </div>
       </div>
 
-      <div class="swiper-wrapper flex items-center h-[323px] md:!h-full">
+      <div class="swiper-wrapper flex items-center !h-[323px] md:!h-full">
         <div
           class="swiper-slide duration-500 w-full sm:!max-w-[330px] md:!max-w-[372px] lg:!max-w-[400px] xl:!max-w-[500px] 2xl:!max-w-[625px] 3xl:!max-w-[750px]"
           x-bind:class="activeIndex === 1 ? 'z-0 ' : activeIndex === 0 ? 'z-10  !scale-100' : ' !transition-all opacity-0 !scale-0'"
@@ -656,8 +682,9 @@ swiper.on('slideChange', function () {
         <div x-show="activeIndex !== 3" class="flex justify-center">
           <button
             @click="
-              swiper.slideNext(activeIndex === 0 ? 1000: 1000)
-            "
+                swiper.slideNext(activeIndex === 0 ? 1000: 1000)
+                gtmClicks(activeIndex+1, 'next')
+              "
             class="w-48 h-14 px-10 py-4 transition-colors lg:hover:bg-sky-400 bg-sky-500 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
           >
             <div class="text-white text-[18px] font-semibold">NEXT</div>
@@ -671,24 +698,24 @@ swiper.on('slideChange', function () {
           <button
             class="w-48 h-14 py-4 border border-solid text-sky-500 border-sky-500 lg:hover:bg-sky-400 lg:hover:text-white lg:hover:border-sky-400 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
             @click="
-                const el = document.querySelector('.md-form.get-more-info-v7');
-                const footNote = document.querySelector('.contact-us-footnote');
+                  const el = document.querySelector('.md-form.get-more-info-v7');
+                  const footNote = document.querySelector('.contact-us-footnote');
 
-                if (footNote) {
-                  footNote.style.display = 'block';
-                }
+                  if (footNote) {
+                    footNote.style.display = 'block';
+                  }
 
-                document.body.style = 'padding-bottom: 80px;'
-                if (el) {
-                  el.style.display = 'block';
-                  setTimeout(() => {
-                    el?.scrollIntoView({
-                      behavior: 'smooth',
-                      block: 'center'
-                    });
-                  }, 300);
-                }
-              "
+                  document.body.style = 'padding-bottom: 80px;'
+                  if (el) {
+                    el.style.display = 'block';
+                    setTimeout(() => {
+                      el?.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                      });
+                    }, 300);
+                  }
+                "
           >
             <div class="text-[18px] font-semibold">ASK A QUESTION</div>
           </button>
