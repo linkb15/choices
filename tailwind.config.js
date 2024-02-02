@@ -12,6 +12,7 @@ module.exports = {
           800: '#222',
         },
         sky: {
+          400: '#7AC3FF',
           500: '#239BFF',
         },
         zinc: {
