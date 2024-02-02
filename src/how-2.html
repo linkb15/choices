@@ -9,11 +9,11 @@
     defer
     src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
   ></script>
-  <link rel="stylesheet" href="./output.css" />
-  <!-- <link
+  <!-- <link rel="stylesheet" href="./output.css" /> -->
+  <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.20/src/output.min.css"
-  /> -->
+    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.25/src/output.min.css"
+  />
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -153,6 +153,11 @@ swiper = new Swiper($refs.container, {
 swiper.on('slideChange', function () {
   console.log('slide changed', swiper.realIndex, swiper.activeIndex, swiper);
   activeIndex = swiper.realIndex
+
+  document.querySelector('.titles')?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
 });
 "
     class="py-20 lg:py-28"
@@ -484,90 +489,97 @@ swiper.on('slideChange', function () {
         </div>
       </div>
 
-      <div
-        x-show="activeIndex === 0"
-        class="flex-col w-full px-4 py-3 lg:py-6 justify-start items-center gap-3 inline-flex"
-      >
-        <div class="font-['font-Lato-700']">
-          <span class="text-sky-500 md:text-[32px] font-extrabold text-2xl"
-            >Find</span
-          ><span
-            class="text-neutral-800 md:text-[32px] font-extrabold text-2xl"
-          >
-            any home for sale.</span
-          >
-        </div>
+      <div class="titles scroll-mt-[60px]">
         <div
-          class="text-center text-neutral-800 text-sm md:text-base font-normal max-w-[651px]"
+          x-show="activeIndex === 0"
+          class="flex-col w-full px-4 py-3 lg:py-6 justify-start items-center gap-3 inline-flex"
         >
-          Search thousands of homes in your ideal location. Filter your results
-          to find a property that matches your budget and personal criteria.
+          <div class="font-['font-Lato-700']">
+            <span class="text-sky-500 md:text-[32px] font-extrabold text-2xl"
+              >Find</span
+            ><span
+              class="text-neutral-800 md:text-[32px] font-extrabold text-2xl"
+            >
+              any home for sale.</span
+            >
+          </div>
+          <div
+            class="text-center text-neutral-800 text-sm md:text-base font-normal max-w-[651px]"
+          >
+            Search thousands of homes in your ideal location. Filter your
+            results to find a property that matches your budget and personal
+            criteria.
+          </div>
         </div>
-      </div>
 
-      <div
-        x-show="activeIndex === 1"
-        class="flex-col w-full px-4 py-3 lg:py-6 justify-start items-center gap-3 inline-flex"
-      >
-        <div class="font-['font-Lato-700']">
-          <span class="text-sky-500 md:text-[32px] text-2xl font-extrabold"
-            >Schedule</span
-          ><span
-            class="text-neutral-800 md:text-[32px] text-2xl font-extrabold"
-          >
-            a tour in one click.</span
-          >
-        </div>
         <div
-          class="text-center text-neutral-800 text-sm md:text-base font-normal max-w-[651px]"
+          x-show="activeIndex === 1"
+          class="flex-col w-full px-4 py-3 lg:py-6 justify-start items-center gap-3 inline-flex"
         >
-          Choose your preferred date and time. Our team will set up your viewing
-          for you. All you need to do is show up and visit the home,
-          pressure-free.
+          <div class="font-['font-Lato-700']">
+            <span class="text-sky-500 md:text-[32px] text-2xl font-extrabold"
+              >Schedule</span
+            ><span
+              class="text-neutral-800 md:text-[32px] text-2xl font-extrabold"
+            >
+              a tour in one click.</span
+            >
+          </div>
+          <div
+            class="text-center text-neutral-800 text-sm md:text-base font-normal max-w-[651px]"
+          >
+            Choose your preferred date and time. Our team will set up your
+            viewing for you. All you need to do is show up and visit the home,
+            pressure-free.
+          </div>
         </div>
-      </div>
 
-      <div
-        x-show="activeIndex === 2"
-        class="flex-col w-full px-4 py-3 lg:py-6 justify-start items-center gap-3 inline-flex"
-      >
-        <div class="text-center font-['font-Lato-700']">
-          <span class="text-neutral-800 md:text-[32px] text-2xl font-extrabold">
-            Make an offer.
-          </span>
-          <br class="block md:hidden" />
-          <span class="text-sky-500 md:text-[32px] text-2xl font-extrabold"
-            >Get the best price.</span
-          >
-        </div>
         <div
-          class="text-center text-neutral-800 text-sm md:text-base font-normal max-w-[651px]"
+          x-show="activeIndex === 2"
+          class="flex-col w-full px-4 py-3 lg:py-6 justify-start items-center gap-3 inline-flex"
         >
-          Ready to buy? Our licensed real estate advisors will negotiate and
-          make an offer on your behalf, so you get the best price for your new
-          home.
+          <div class="text-center font-['font-Lato-700']">
+            <span
+              class="text-neutral-800 md:text-[32px] text-2xl font-extrabold"
+            >
+              Make an offer.
+            </span>
+            <br class="block md:hidden" />
+            <span class="text-sky-500 md:text-[32px] text-2xl font-extrabold"
+              >Get the best price.</span
+            >
+          </div>
+          <div
+            class="text-center text-neutral-800 text-sm md:text-base font-normal max-w-[651px]"
+          >
+            Ready to buy? Our licensed real estate advisors will negotiate and
+            make an offer on your behalf, so you get the best price for your new
+            home.
+          </div>
         </div>
-      </div>
 
-      <div
-        x-show="activeIndex === 3"
-        class="flex-col w-full px-4 py-3 lg:py-6 justify-start items-center gap-3 inline-flex"
-      >
-        <div class="text-center font-['font-Lato-700']">
-          <span class="text-neutral-800 md:text-[32px] text-2xl font-extrabold">
-            Complete your home
-          </span>
-          <br class="block md:hidden" />
-          <span class="text-sky-500 md:text-[32px] text-2xl font-extrabold"
-            >purchase online.</span
-          >
-        </div>
         <div
-          class="text-center text-neutral-800 text-sm md:text-base font-normal max-w-[651px]"
+          x-show="activeIndex === 3"
+          class="flex-col w-full px-4 py-3 lg:py-6 justify-start items-center gap-3 inline-flex"
         >
-          Our online licensed advisors will handle every step of the home-buying
-          process for you - from the first viewing to when you get the keys in
-          your hand.
+          <div class="text-center font-['font-Lato-700']">
+            <span
+              class="text-neutral-800 md:text-[32px] text-2xl font-extrabold"
+            >
+              Complete your home
+            </span>
+            <br class="block md:hidden" />
+            <span class="text-sky-500 md:text-[32px] text-2xl font-extrabold"
+              >purchase online.</span
+            >
+          </div>
+          <div
+            class="text-center text-neutral-800 text-sm md:text-base font-normal max-w-[651px]"
+          >
+            Our online licensed advisors will handle every step of the
+            home-buying process for you - from the first viewing to when you get
+            the keys in your hand.
+          </div>
         </div>
       </div>
 
@@ -579,14 +591,14 @@ swiper.on('slideChange', function () {
           <div class="relative h-full flex justify-center items-center">
             <img
               @click="swiper.slideTo(0, 1000)"
-              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.23/public/image-1-2.png"
+              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.25/public/image-1-2.png"
               alt=""
               class="hidden lg:block cursor-pointer transition-all duration-500"
               x-bind:class="activeIndex !== 0 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-[76%] translate-x-[110px]' : 'scale-100'"
             />
             <img
               @click="swiper.slideTo(0, 1000)"
-              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.23/public/image-1-tablet.png"
+              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.25/public/image-1-tablet.png"
               alt=""
               class="block lg:hidden cursor-pointer max-w-[320px] transition-all duration-500"
               x-bind:class="activeIndex !== 0 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-[76%]' : 'scale-100'"
@@ -600,7 +612,7 @@ swiper.on('slideChange', function () {
           <div class="relative h-full flex justify-center items-center">
             <img
               @click="swiper.slideTo(1, 1000)"
-              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.23/public/image-2-2.png"
+              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.25/public/image-2-2.png"
               alt=""
               class="cursor-pointer max-w-[320px] xl:max-w-[400px] 2xl:max-w-[480px] transition-all duration-500"
               x-bind:class="activeIndex !== 1 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75' : 'scale-100'"
@@ -608,13 +620,13 @@ swiper.on('slideChange', function () {
           </div>
         </div>
         <div
-          class="swiper-slide transition-all duration-500 w-full md:!w-[320px]"
+          class="swiper-slide transition-all duration-500 w-full md:!w-[320px] xl:!w-[400px] 2xl:!w-[480px]"
           x-bind:class="activeIndex === 1 ? 'z-0 ' : activeIndex === 3 ? 'z-0 ' : activeIndex === 2 ?  'z-10 ' : ' !scale-0 opacity-0'"
         >
           <div class="relative h-full flex justify-center items-center">
             <img
               @click="swiper.slideTo(2, 1000)"
-              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.23/public/image-3-2.png"
+              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.25/public/image-3-2.png"
               alt=""
               class="cursor-pointer transition-all max-w-[320px] xl:max-w-[400px] 2xl:max-w-[480px] duration-500"
               x-bind:class="activeIndex !== 2 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75' : 'scale-100'"
@@ -622,13 +634,13 @@ swiper.on('slideChange', function () {
           </div>
         </div>
         <div
-          class="swiper-slide w-full md:!w-[320px]"
+          class="swiper-slide w-full md:!w-[320px] xl:!w-[400px] 2xl:!w-[480px]"
           x-bind:class="activeIndex === 2 ? 'z-0' : activeIndex === 3 ? 'z-10' : 'opacity-0 !scale-0'"
         >
           <div class="relative h-full flex justify-center items-center">
             <img
               @click="swiper.slideTo(3, 1000)"
-              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.23/public/image-4-3.png"
+              src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.25/public/image-4-3.png"
               alt=""
               class="cursor-pointer transition-all max-w-[320px] xl:max-w-[400px] 2xl:max-w-[480px] duration-500"
               x-bind:class="activeIndex !== 3 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75' : 'scale-100'"
@@ -643,7 +655,9 @@ swiper.on('slideChange', function () {
       >
         <div x-show="activeIndex !== 3" class="flex justify-center">
           <button
-            @click="swiper.slideNext(activeIndex === 0 ? 1000: 1000)"
+            @click="
+              swiper.slideNext(activeIndex === 0 ? 1000: 1000)
+            "
             class="w-48 h-14 px-10 py-4 transition-colors md:hover:bg-sky-400 bg-sky-500 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
           >
             <div class="text-white text-[18px] font-semibold">NEXT</div>
@@ -691,11 +705,11 @@ swiper.on('slideChange', function () {
       </div>
     </div>
   </div>
-
-  <div class="contact-us-footnote text-center">
-    <a href="/listing" class="underline !text-sky-500"
-      >Browse thousands of property options</a
-    >
-    with Gigi.
-  </div>
 </body>
+
+<div class="contact-us-footnote text-center">
+  <a href="/listing" class="underline !text-sky-500"
+    >Browse thousands of property options</a
+  >
+  with Gigi.
+</div>
