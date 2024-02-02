@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="./output.css" />
   <!-- <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.36/src/output.min.css"
+    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.37/src/output.min.css"
   /> -->
   <link
     rel="stylesheet"
@@ -514,7 +514,8 @@
       </div>
 
       <div
-        class="titles h-[150px] landscapeMode:h-[100px] md:h-auto scroll-mt-[147px]"
+        class="titles landscapeMode:h-[100px] md:h-auto scroll-mt-[147px]"
+        x-bind:class="activeIndex === 0 ? 'h-[120px]' : 'h-[150px]'"
       >
         <div
           x-show="activeIndex === 0"
@@ -613,7 +614,7 @@
         class="swiper-wrapper flex items-center landscapeMode:!h-[470px] h-[323px] md:!h-full"
       >
         <div
-          class="swiper-slide duration-500 w-full sm:max-w-[330px] md:max-w-[372px] lg:max-w-[400px] xl:max-w-[500px] 2xl:!max-w-[625px] 3xl:max-w-[750px]  landscapeMode:max-w-full"
+          class="swiper-slide duration-500 w-full md:max-w-[372px] lg:max-w-[450px] xl:max-w-[550px] 2xl:max-w-[675px] 3xl:max-w-[800px] landscapeMode:max-w-full"
           x-bind:class="activeIndex === 1 ? 'z-0 ' : activeIndex === 0 ? 'z-10  !scale-100' : ' !transition-all opacity-0 !scale-0'"
         >
           <div class="relative h-full flex justify-center items-center">
@@ -634,7 +635,7 @@
           </div>
         </div>
         <div
-          class="swiper-slide transition-all duration-500 w-full landscapeMode:max-w-full md:max-w-[372px] sm:max-w-[320px] xl:max-w-[400px] 2xl:!max-w-[480px] 3xl:!max-w-[600px]"
+          class="swiper-slide transition-all duration-500 w-full landscapeMode:max-w-full md:max-w-[372px] xl:max-w-[400px] 2xl:!max-w-[480px] 3xl:!max-w-[600px]"
           x-bind:class="activeIndex === 0 ? 'z-0 ' : activeIndex === 2 ? 'z-0 ' : activeIndex === 1 ? 'z-10 ' : ' !transition-all opacity-0 !scale-0'"
         >
           <div class="relative h-full flex justify-center items-center">
@@ -648,7 +649,7 @@
           </div>
         </div>
         <div
-          class="swiper-slide transition-all duration-500 w-full landscapeMode:max-w-full sm:max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:!max-w-[480px] 3xl:!max-w-[600px]"
+          class="swiper-slide transition-all duration-500 w-full landscapeMode:max-w-full md:max-w-[372px] xl:max-w-[400px] 2xl:!max-w-[480px] 3xl:!max-w-[600px]"
           x-bind:class="activeIndex === 1 ? 'z-0 ' : activeIndex === 3 ? 'z-0 ' : activeIndex === 2 ?  'z-10 ' : ' !scale-0 opacity-0'"
         >
           <div class="relative h-full flex justify-center items-center">
@@ -662,7 +663,7 @@
           </div>
         </div>
         <div
-          class="swiper-slide w-full sm:max-w-[320px] md:max-w-[372px] landscapeMode:max-w-full xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[560px]"
+          class="swiper-slide w-full md:max-w-[372px] landscapeMode:max-w-full xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[560px]"
           x-bind:class="activeIndex === 2 ? 'z-0' : activeIndex === 3 ? 'z-10' : 'opacity-0 !scale-0'"
         >
           <div class="relative h-full flex justify-center items-center">
