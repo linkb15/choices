@@ -10,6 +10,7 @@ module.exports = {
       screens: {
         '3xl': '1800px',
         '4xl': '2048px',
+        landscapeMode: { raw: '(orientation: landscape) and (max-width: 1024px)' },
       },
       colors: {
         neutral: {
