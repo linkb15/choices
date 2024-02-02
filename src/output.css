@@ -863,6 +863,14 @@ video {
   height: 100%;
 }
 
+.h-\[160px\] {
+  height: 160px;
+}
+
+.h-\[323px\] {
+  height: 323px;
+}
+
 .min-h-\[367px\] {
   min-height: 367px;
 }
