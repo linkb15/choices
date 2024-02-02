@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="./output.css" />
   <!-- <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.29/src/output.min.css"
+    href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.31/src/output.min.css"
   /> -->
   <link
     rel="stylesheet"
@@ -504,7 +504,7 @@ swiper.on('slideChange', function () {
         </div>
       </div>
 
-      <div class="titles scroll-mt-[156px]">
+      <div class="titles h-[160px] md:h-auto scroll-mt-[156px]">
         <div
           x-show="activeIndex === 0"
           class="flex-col w-full px-4 py-3 lg:py-6 justify-start items-center gap-3 inline-flex"
@@ -598,7 +598,7 @@ swiper.on('slideChange', function () {
         </div>
       </div>
 
-      <div class="swiper-wrapper flex items-center h-[267px]">
+      <div class="swiper-wrapper flex items-center !h-[323px] md:!h-full">
         <div
           class="swiper-slide duration-500 w-full sm:!max-w-[330px] md:!max-w-[372px] lg:!max-w-[400px] xl:!max-w-[500px] 2xl:!max-w-[625px] 3xl:!max-w-[750px]"
           x-bind:class="activeIndex === 1 ? 'z-0 ' : activeIndex === 0 ? 'z-10  !scale-100' : ' !transition-all opacity-0 !scale-0'"
