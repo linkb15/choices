@@ -1126,7 +1126,7 @@ video {
 
 .border-gray-100 {
   --tw-border-opacity: 1;
-  border-color: rgb(243 244 246 / var(--tw-border-opacity));
+  border-color: rgb(241 241 243 / var(--tw-border-opacity));
 }
 
 .border-gray-300 {
@@ -1136,12 +1136,12 @@ video {
 
 .border-green-500 {
   --tw-border-opacity: 1;
-  border-color: rgb(34 197 94 / var(--tw-border-opacity));
+  border-color: rgb(111 192 124 / var(--tw-border-opacity));
 }
 
 .border-sky-500 {
   --tw-border-opacity: 1;
-  border-color: rgb(14 165 233 / var(--tw-border-opacity));
+  border-color: rgb(35 155 255 / var(--tw-border-opacity));
 }
 
 .border-transparent {
@@ -1160,17 +1160,17 @@ video {
 
 .bg-green-500 {
   --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+  background-color: rgb(111 192 124 / var(--tw-bg-opacity));
 }
 
 .bg-sky-500 {
   --tw-bg-opacity: 1;
-  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+  background-color: rgb(35 155 255 / var(--tw-bg-opacity));
 }
 
 .bg-slate-100 {
   --tw-bg-opacity: 1;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+  background-color: rgb(245 246 250 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -1230,11 +1230,6 @@ video {
 .py-20 {
   padding-top: 5rem;
   padding-bottom: 5rem;
-}
-
-.py-28 {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
 }
 
 .py-3 {
@@ -1340,7 +1335,7 @@ video {
 
 .\!text-sky-500 {
   --tw-text-opacity: 1 !important;
-  color: rgb(14 165 233 / var(--tw-text-opacity)) !important;
+  color: rgb(35 155 255 / var(--tw-text-opacity)) !important;
 }
 
 .text-gray-500 {
@@ -1355,17 +1350,17 @@ video {
 
 .text-green-500 {
   --tw-text-opacity: 1;
-  color: rgb(34 197 94 / var(--tw-text-opacity));
+  color: rgb(111 192 124 / var(--tw-text-opacity));
 }
 
 .text-neutral-800 {
   --tw-text-opacity: 1;
-  color: rgb(38 38 38 / var(--tw-text-opacity));
+  color: rgb(34 34 34 / var(--tw-text-opacity));
 }
 
 .text-sky-500 {
   --tw-text-opacity: 1;
-  color: rgb(14 165 233 / var(--tw-text-opacity));
+  color: rgb(35 155 255 / var(--tw-text-opacity));
 }
 
 .text-white {
@@ -1375,7 +1370,7 @@ video {
 
 .text-zinc-500 {
   --tw-text-opacity: 1;
-  color: rgb(113 113 122 / var(--tw-text-opacity));
+  color: rgb(128 128 128 / var(--tw-text-opacity));
 }
 
 .underline {
