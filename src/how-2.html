@@ -250,14 +250,16 @@ swiper.on('slideChange', function () {
 
             <div
               @click="
+              if (activeIndex >= 1) {
                 swiper.slideTo(1, 1000)
                 document.querySelector('.steps')?.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
+              }
               "
-              class="flex-col min-w-[66px] md:min-w-[124px] cursor-pointer justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
-              x-bind:class="activeIndex > 1 ? 'border-green-500 text-green-500' : activeIndex === 1 ? 'border-sky-500 text-sky-500' : 'border-transparent text-zinc-500'"
+              class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
+              x-bind:class="activeIndex > 1 ? 'border-green-500 text-green-500 cursor-pointer' : activeIndex === 1 ? 'border-sky-500 text-sky-500 cursor-pointer' : 'border-transparent text-zinc-500'"
             >
               <div class="w-10 h-10 relative">
                 <div
@@ -302,7 +304,7 @@ swiper.on('slideChange', function () {
             <div
               @click="
                 console.log(activeIndex)
-                if (activeIndex >= 1) {
+                if (activeIndex >= 2) {
                   swiper.slideTo(2, 1000)
                   document.querySelector('.steps')?.scrollIntoView({
                     behavior: 'smooth',
@@ -311,7 +313,7 @@ swiper.on('slideChange', function () {
                 }
               "
               class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
-              x-bind:class="activeIndex > 2 ? 'border-green-500 text-green-500 cursor-pointer' : activeIndex === 2 ? 'border-sky-500 text-sky-500 cursor-pointer' : activeIndex >= 1 ? 'border-transparent text-zinc-500 cursor-pointer' : 'border-transparent text-zinc-500'"
+              x-bind:class="activeIndex > 2 ? 'border-green-500 text-green-500 cursor-pointer' : activeIndex === 2 ? 'border-sky-500 text-sky-500 cursor-pointer' : 'border-transparent text-zinc-500'"
             >
               <div class="w-10 h-10 relative">
                 <div
@@ -355,7 +357,7 @@ swiper.on('slideChange', function () {
 
             <div
               @click="
-                if (activeIndex >= 2) {
+                if (activeIndex >= 3) {
                   swiper.slideTo(3, 1000)
                   document.querySelector('.steps')?.scrollIntoView({
                     behavior: 'smooth',
@@ -364,7 +366,7 @@ swiper.on('slideChange', function () {
                 }
               "
               class="flex-col min-w-[66px] md:min-w-[124px] justify-start items-center gap-2 inline-flex border-solid border-b-[3px]"
-              x-bind:class="activeIndex > 3 ? 'border-green-500 text-green-500' : activeIndex === 3 ? 'border-sky-500 text-sky-500' : activeIndex >= 2 ? 'border-transparent text-zinc-500 cursor-pointer' : 'border-transparent text-zinc-500'"
+              x-bind:class="activeIndex > 3 ? 'border-green-500 text-green-500' : activeIndex === 3 ? 'border-sky-500 text-sky-500 cursor-pointer' : 'border-transparent text-zinc-500'"
             >
               <div class="w-10 h-10 relative">
                 <div
@@ -562,7 +564,12 @@ swiper.on('slideChange', function () {
         </div>
       </div>
 
-      <div x-show="activeIndex !== 3" class="flex justify-center">
+      <div
+        x-intersect:enter.margin.-250px.0.0.0="isSticky = true"
+        x-intersect:leave.margin.-250px.0.0.0="isSticky = false"
+        x-show="activeIndex !== 3"
+        class="flex justify-center"
+      >
         <button
           @click="swiper.slideNext(activeIndex === 0 ? 1000: 1000)"
           class="w-48 h-14 px-10 py-4 bg-sky-500 justify-center items-center inline-flex disabled:cursor-not-allowed disabled:opacity-50"
