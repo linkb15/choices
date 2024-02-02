@@ -9,11 +9,11 @@
     defer
     src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
   ></script>
-  <!-- <link rel="stylesheet" href="./output.css" /> -->
-  <link
+  <link rel="stylesheet" href="./output.css" />
+  <!-- <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.29/src/output.min.css"
-  />
+  /> -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -600,7 +600,7 @@ swiper.on('slideChange', function () {
 
       <div class="swiper-wrapper flex items-center h-[267px]">
         <div
-          class="swiper-slide duration-500 w-full sm:!max-w-[330px] md:!w-[372px] lg:!w-[400px] xl:!w-[500px] 2xl:!w-[625px]"
+          class="swiper-slide duration-500 w-full sm:!max-w-[330px] md:!max-w-[372px] lg:!max-w-[400px] xl:!max-w-[500px] 2xl:!max-w-[625px] 3xl:!max-w-[750px]"
           x-bind:class="activeIndex === 1 ? 'z-0 ' : activeIndex === 0 ? 'z-10  !scale-100' : ' !transition-all opacity-0 !scale-0'"
         >
           <div class="relative h-full flex justify-center items-center">
@@ -621,7 +621,7 @@ swiper.on('slideChange', function () {
           </div>
         </div>
         <div
-          class="swiper-slide transition-all duration-500 w-full md:!w-[372px] sm:!max-w-[320px] xl:!w-[400px] 2xl:!w-[480px]"
+          class="swiper-slide transition-all duration-500 w-full md:!w-[372px] sm:!max-w-[320px] xl:!max-w-[400px] 2xl:!max-w-[480px] 3xl:!max-w-[600px]"
           x-bind:class="activeIndex === 0 ? 'z-0 ' : activeIndex === 2 ? 'z-0 ' : activeIndex === 1 ? 'z-10 ' : ' !transition-all opacity-0 !scale-0'"
         >
           <div class="relative h-full flex justify-center items-center">
@@ -629,13 +629,13 @@ swiper.on('slideChange', function () {
               @click="swiper.slideTo(1, 1000)"
               src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.26/public/image-2-2.png"
               alt=""
-              class="max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] transition-all duration-500"
+              class="max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[600px] transition-all duration-500"
               x-bind:class="activeIndex !== 1 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75 cursor-pointer' : 'scale-100'"
             />
           </div>
         </div>
         <div
-          class="swiper-slide transition-all duration-500 w-full sm:!max-w-[320px] md:!w-[372px] xl:!w-[400px] 2xl:!w-[480px]"
+          class="swiper-slide transition-all duration-500 w-full sm:!max-w-[320px] md:!max-w-[372px] xl:!max-w-[400px] 2xl:!max-w-[480px] 3xl:!max-w-[600px]"
           x-bind:class="activeIndex === 1 ? 'z-0 ' : activeIndex === 3 ? 'z-0 ' : activeIndex === 2 ?  'z-10 ' : ' !scale-0 opacity-0'"
         >
           <div class="relative h-full flex justify-center items-center">
@@ -643,13 +643,13 @@ swiper.on('slideChange', function () {
               @click="swiper.slideTo(2, 1000)"
               src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.26/public/image-3-2.png"
               alt=""
-              class="transition-all max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] duration-500"
+              class="transition-all max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[600px] duration-500"
               x-bind:class="activeIndex !== 2 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75 cursor-pointer' : 'scale-100'"
             />
           </div>
         </div>
         <div
-          class="swiper-slide w-full sm:!max-w-[320px] md:!w-[372px] xl:!w-[400px] 2xl:!w-[480px]"
+          class="swiper-slide w-full sm:!max-w-[320px] md:!max-w-[372px] xl:!max-w-[400px] 2xl:!max-w-[480px] 3xl:!max-w-[560px]"
           x-bind:class="activeIndex === 2 ? 'z-0' : activeIndex === 3 ? 'z-10' : 'opacity-0 !scale-0'"
         >
           <div class="relative h-full flex justify-center items-center">
@@ -657,7 +657,7 @@ swiper.on('slideChange', function () {
               @click="swiper.slideTo(3, 1000)"
               src="https://cdn.jsdelivr.net/gh/linkb15/choices@0.0.26/public/image-4-3.png"
               alt=""
-              class="transition-all max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] duration-500"
+              class="transition-all max-w-[320px] md:max-w-[372px] xl:max-w-[400px] 2xl:max-w-[480px] 3xl:max-w-[600px] duration-500"
               x-bind:class="activeIndex !== 3 ? 'blur-[2px] opacity-30 hover:opacity-100 hover:blur-0 scale-75 cursor-pointer' : 'scale-100'"
             />
           </div>

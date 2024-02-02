@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        '3xl': '1800px',
+        '4xl': '2048px',
+      },
       colors: {
         neutral: {
           800: '#222',
