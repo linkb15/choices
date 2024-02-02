@@ -1530,6 +1530,14 @@ video {
   .sm\:\!w-\[320px\] {
     width: 320px !important;
   }
+
+  .sm\:\!max-w-\[330px\] {
+    max-width: 330px !important;
+  }
+
+  .sm\:\!max-w-\[320px\] {
+    max-width: 320px !important;
+  }
 }
 
 @media (min-width: 768px) {
