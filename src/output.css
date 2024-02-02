@@ -1697,6 +1697,21 @@ video {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
   }
+
+  .lg\:hover\:border-sky-400:hover {
+    --tw-border-opacity: 1;
+    border-color: rgb(122 195 255 / var(--tw-border-opacity));
+  }
+
+  .lg\:hover\:bg-sky-400:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(122 195 255 / var(--tw-bg-opacity));
+  }
+
+  .lg\:hover\:text-white:hover {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
 }
 
 @media (min-width: 1280px) {
